@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jde-orma <jde-orma@42urduliz.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 08:09:07 by jde-orma          #+#    #+#             */
-/*   Updated: 2022/12/01 08:09:07 by jde-orma         ###   ########.fr       */
+/*   Created: 2022/12/04 16:19:55 by jde-orma          #+#    #+#             */
+/*   Updated: 2022/12/04 16:19:55 by jde-orma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include<string.h>
 
-char	*ft_strchr(const char *s, int c)
+char *ft_strrchr(const char *s, int c)
 {
-	char	*i;
+    char    *i;
 
-	i = (char *)s;
-	while (*i != c)
-	{
-		if (!*i)
-		{
-			return (NULL);
-		}
-		i++;
-	}
-	return (i);
+    i = NULL;
+    while (*s)
+    {
+        if(*s == (char)c)
+        {
+            i = (char *)s;
+        }
+        s++;
+    }
+    return (i);
 }

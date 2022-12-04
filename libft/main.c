@@ -25,11 +25,12 @@ int	main(int argc, char **argv)
 	printf("	- Tiene un total %d caracteres \n", ft_strlen(argv[argc - 2]));
 	printf("	- Pasado a minuscula es: %s \n", ft_tolower(argv[argc - 2]));
 	printf("	- Pasado a mayuscula es: %s \n", ft_toupper(argv[argc - 2]));
-	printf("	- Pasado a mayuscula es: %s \n", ft_toupper(argv[argc - 2]));
-	printf("	- Su direccion de memoria es: %p \n", argv[argc - 2]);
-	printf("	- Su direccion de memoria es: %p \n", argv[argc - 2] + 1);
-	printf("	- Su direccion de memoria es: %p \n", argv[argc - 2] + 2);
-	printf("	- Su direccion de memoria es: %p \n", argv[argc - 2] + 3);
-	printf("	- La direccion de la primera ocurrencia de %s es: %p \n", argv[argc - 2] + 1, ft_strchr(argv[argc - 2], 'o'));
+	printf("	- Su direccion de memoria es: %p y su valor es %c \n", argv[argc - 2], argv[argc - 2][0]);
+	printf("	- Su direccion de memoria es: %p y su valor es %c \n", argv[argc - 2] + 1, argv[argc - 2][1]);
+	printf("	- Su direccion de memoria es: %p y su valor es %c \n", argv[argc - 2] + 2, argv[argc - 2][2]);
+	printf("	- Su direccion de memoria es: %p y su valor es %c \n", argv[argc - 2] + 3, argv[argc - 2][3]);
+	printf("	- Su direccion de memoria es: %p y su valor es %c \n", argv[argc - 2] + 4, argv[argc - 2][4]);
+	printf("	- La direccion de la primera ocurrencia de 'G' en %s es: %p \n", argv[argc - 2], ft_strchr(argv[argc - 2], 'G'));
+	printf("	- La direccion de la ultima ocurrencia de 'G' en %s es: %p \n", argv[argc - 2], ft_strrchr(argv[argc - 2], 'G'));
 	return (0);
 }

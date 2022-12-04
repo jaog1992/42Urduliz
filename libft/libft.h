@@ -23,7 +23,7 @@ int	ft_isprint(char c);
 char	*ft_tolower(char *str);
 char	*ft_toupper(char *str);
 int	ft_strlen(char *c);
-/*char	*ft_strchr(const char *s, int c);*/
-
+char	*ft_strchr(const char *s, int c);
+char	*ft_strrchr(const char *s, int c);
 
 #endif
