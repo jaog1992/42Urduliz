@@ -10,14 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *c)
+long unsigned int	ft_strlen(const char *c)
 {
-	int	a;
+	long unsigned int	a;
 
 	a = 0;
 	while (c[a] != '\0')
-	{
 		a++;
-	}
 	return (a);
 }

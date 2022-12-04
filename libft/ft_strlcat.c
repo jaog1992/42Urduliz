@@ -10,25 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+#include <string.h>
+#include "libft.h"
+
+unsigned int	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	unsigned int	x;
 	unsigned int	y;
 	unsigned int	r;
 
 	x = 0;
-	y = 0;
-	r = 0;
-	while (dest[x])
-		x++;
-	while (src[r])
-		r++;
-	if (size <= x)
-		r += size;
+	y = ft_strlen(dst);
+	r = size;
+	if (size == 0)
+		return (ft_strlen(src));
+	if (size < y)
+		r += y;
 	else
-		r += x;
-	while (src[y] && x + 1 < size)
-		dest[x++] = src[y++];
-	dest[x] = '\0';
+		r += size;
+	while (src[x] && y < r)
+		dst[y++] = src[x++];
+	dst[y] = '\0';
 	return (r);
 }

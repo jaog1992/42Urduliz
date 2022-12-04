@@ -22,8 +22,10 @@ int	ft_isascii(char c);
 int	ft_isprint(char c);
 char	*ft_tolower(char *str);
 char	*ft_toupper(char *str);
-int	ft_strlen(char *c);
+long unsigned int	ft_strlen(const char *c);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
+unsigned int	ft_strlcat(char *dst, const char *src, size_t size);
+unsigned int	ft_strlcpy(char *dst, const char *src, size_t size);
 
 #endif
