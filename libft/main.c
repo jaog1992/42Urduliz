@@ -10,36 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
-
-int	ft_isalpha(char c);
-int	ft_isdigit(char c);
-int	ft_isalnum(char c);
-int	ft_isascii(char c);
+#include "libft.h"
+#include<stdio.h>
 
 int	main(int argc, char **argv)
 {
-	int		a;
-	int		b;
-	int		c;
-	int		d;
-	char	A;
-	char	B;
-	char	C;
-	char	D;
-
-	A = argv[argc - 4][0];
-	B = argv[argc - 3][0];
-	C = argv[argc - 2][0];
-	D = argv[argc - 1][0];
-	a = ft_isalpha(A) + 48;
-	b = ft_isdigit(B) + 48;
-	c = ft_isalnum(C) + 48;
-	d = ft_isascii(D) + 48;
-	write(1, &a, 1);
-	write(1, &b, 1);
-	write(1, &c, 1);
-	write(1, &d, 1);
-	write(1, "\n", 1);
+	printf("El char introducido por linea de comandos es: %s \n", argv[argc - 1]);
+	printf("	¿Es %s un char del alfabeto?: %d \n", argv[argc - 1], ft_isalpha(argv[argc - 1][0]));
+	printf("	¿Es %s un char de tipo digito del cero al nueve?: %d \n", argv[argc - 1], ft_isdigit(argv[argc - 1][0]));
+	printf("	¿Es %s un char alfanumerico?: %d \n", argv[argc - 1], ft_isalnum(argv[argc - 1][0]));
+	printf("	¿Es %s un char del codigo ascii? %d \n", argv[argc - 1], ft_isascii(argv[argc - 1][0]));
+	printf("	¿Es %s un char imprimible?: %d \n", argv[argc - 1], ft_isprint(argv[argc - 1][0]));
+	printf("El string introducido por linea de comandos es: %s \n", argv[argc - 2]);
+	printf("	- Tiene un total %d caracteres \n", ft_strlen(argv[argc - 2]));
+	printf("	- Pasado a minuscula es: %s \n", ft_tolower(argv[argc - 2]));
+	printf("	- Pasado a mayuscula es: %s \n", ft_toupper(argv[argc - 2]));
+	printf("	- Pasado a mayuscula es: %s \n", ft_toupper(argv[argc - 2]));
+	printf("	- Su direccion de memoria es: %p \n", argv[argc - 2]);
+	printf("	- Su direccion de memoria es: %p \n", argv[argc - 2] + 1);
+	printf("	- Su direccion de memoria es: %p \n", argv[argc - 2] + 2);
+	printf("	- Su direccion de memoria es: %p \n", argv[argc - 2] + 3);
+	printf("	- La direccion de la primera ocurrencia de %s es: %p \n", argv[argc - 2] + 1, ft_strchr(argv[argc - 2], 'o'));
 	return (0);
 }

@@ -11,24 +11,28 @@
 # **************************************************************************** #
 
 Archivo donde indicar avance del ejercicio:
+
+• MAKEFILE OK
+• libft.h OK
+
 PARTE 1
 • isalpha OK
 • isdigit OK
 • isalnum OK
 • isascii OK
 • isprint OK
-• strlen OK
+• strlen  OK
 • memset
 • bzero
 • memcpy
 • memmove
 • strlcpy REVISAR | MAN | NORMINETTE | COMPILAR | MAIN
 • strlcat REVISAR | MAN | NORMINETTE | COMPILAR | MAIN
-• toupper REVISAR | MAN | NORMINETTE | COMPILAR | MAIN
-• tolower REVISAR | MAN | NORMINETTE | COMPILAR | MAIN
+• toupper NORMINETTE
+• tolower NORMINETTE
 • strchr
 • strrchr
-• strncmp
+• strncmp REVISAR | MAN | NORMINETTE | COMPILAR | MAIN
 • memchr
 • memcmp
 • strnstr

@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jde-orma <jde-orma@42urduliz.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 18:39:47 by jde-orma          #+#    #+#             */
-/*   Updated: 2022/11/30 18:39:47 by jde-orma         ###   ########.fr       */
+/*   Created: 2022/12/01 08:09:07 by jde-orma          #+#    #+#             */
+/*   Updated: 2022/12/01 08:09:07 by jde-orma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	 *ft_tolower(char *str)
+#include <string.h>
+
+char	*ft_strchr(const char *s, int c)
 {
-	int	i;
+	int		i;
+	char	*chr;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (s[i] != '\0')
 	{
-		if (str[i] >= 'A' && str[i] <= 'Z')
+		if (s[i] == c)
 		{
-			str[i] += 32;
+			return (*s[i]);
 		}
 		i++;
 	}
-	return (str);
+	return (0);
 }
