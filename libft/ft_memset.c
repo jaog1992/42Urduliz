@@ -6,7 +6,7 @@
 /*   By: jde-orma <jde-orma@42urduliz.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 19:37:30 by jde-orma          #+#    #+#             */
-/*   Updated: 2022/12/04 19:37:30 by jde-orma         ###   ########.fr       */
+/*   Updated: 2022/12/05 08:00:29 by jde-orma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ void	*ft_memset(void *s, int c, size_t n)
 	i = (unsigned char *)s;
 	while (n--)
 		*i++ = (unsigned char)c;
-    return (s);
+	return (s);
 }

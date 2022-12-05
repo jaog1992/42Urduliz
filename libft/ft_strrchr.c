@@ -6,24 +6,22 @@
 /*   By: jde-orma <jde-orma@42urduliz.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 16:19:55 by jde-orma          #+#    #+#             */
-/*   Updated: 2022/12/04 16:19:55 by jde-orma         ###   ########.fr       */
+/*   Updated: 2022/12/05 09:24:28 by jde-orma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<string.h>
 
-char *ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-    char    *i;
+	char	*i;
 
-    i = NULL;
-    while (*s)
-    {
-        if(*s == (char)c)
-        {
-            i = (char *)s;
-        }
-        s++;
-    }
-    return (i);
+	i = NULL;
+	while (*s)
+	{
+		if (*s == (char)c)
+			i = (char *)s;
+		s++;
+	}
+	return (i);
 }

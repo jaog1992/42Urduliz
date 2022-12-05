@@ -6,13 +6,13 @@
 /*   By: jde-orma <jde-orma@42urduliz.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 21:46:13 by jde-orma          #+#    #+#             */
-/*   Updated: 2022/12/04 21:46:13 by jde-orma         ###   ########.fr       */
+/*   Updated: 2022/12/05 08:01:22 by jde-orma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-void    ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
 	unsigned char	*i;
 

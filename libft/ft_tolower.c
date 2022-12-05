@@ -6,11 +6,11 @@
 /*   By: jde-orma <jde-orma@42urduliz.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 18:39:47 by jde-orma          #+#    #+#             */
-/*   Updated: 2022/11/30 18:39:47 by jde-orma         ###   ########.fr       */
+/*   Updated: 2022/12/05 08:12:41 by jde-orma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	 *ft_tolower(char *str)
+char	*ft_tolower(char *str)
 {
 	int	i;
 
