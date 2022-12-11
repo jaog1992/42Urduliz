@@ -22,20 +22,20 @@ PARTE 1
 • isascii OK
 • isprint OK
 • strlen  OK
-• memset
-• bzero
-• memcpy
-• memmove
-• strlcpy REVISAR | MAN | NORMINETTE | COMPILAR | MAIN
-• strlcat REVISAR | MAN | NORMINETTE | COMPILAR | MAIN
-• toupper NORMINETTE
-• tolower NORMINETTE
-• strchr
-• strrchr
-• strncmp REVISAR | MAN | NORMINETTE | COMPILAR | MAIN
-• memchr
-• memcmp
-• strnstr
+• memset  OK
+• bzero   OK
+• memcpy  OK
+• memmove OK
+• strlcpy OK
+• strlcat OK
+• toupper OK
+• tolower OK
+• strchr  OK
+• strrchr OK
+• strncmp OK
+• memchr  OK
+• memcmp  OK 
+• strnstr OK
 • atoi
 • calloc | malloc
 • strdup | malloc

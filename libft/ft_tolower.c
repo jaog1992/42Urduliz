@@ -6,22 +6,15 @@
 /*   By: jde-orma <jde-orma@42urduliz.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 18:39:47 by jde-orma          #+#    #+#             */
-/*   Updated: 2022/12/05 08:12:41 by jde-orma         ###   ########.fr       */
+/*   Updated: 2022/12/08 16:41:09 by jde-orma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_tolower(char *str)
-{
-	int	i;
+#include "libft.h"
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] >= 'A' && str[i] <= 'Z')
-		{
-			str[i] += 32;
-		}
-		i++;
-	}
-	return (str);
+int	ft_tolower(int c)
+{
+	if (c >= 'A' && c <= 'Z')
+		c += 32;
+	return (c);
 }

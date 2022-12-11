@@ -6,11 +6,10 @@
 /*   By: jde-orma <jde-orma@42urduliz.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 18:42:48 by jde-orma          #+#    #+#             */
-/*   Updated: 2022/12/05 08:10:44 by jde-orma         ###   ########.fr       */
+/*   Updated: 2022/12/08 11:12:43 by jde-orma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
 unsigned int	ft_strlcat(char *dst, const char *src, size_t size)

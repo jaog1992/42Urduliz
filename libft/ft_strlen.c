@@ -6,11 +6,13 @@
 /*   By: jde-orma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 13:13:00 by jde-orma          #+#    #+#             */
-/*   Updated: 2022/11/30 13:15:22 by jde-orma         ###   ########.fr       */
+/*   Updated: 2022/12/08 15:49:09 by jde-orma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long unsigned int	ft_strlen(const char *c)
+#include "libft.h"
+
+size_t	ft_strlen(const char *c)
 {
 	long unsigned int	a;
 

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 unsigned int	ft_strlcpy(char *dst, const char *src, size_t size)
 {
