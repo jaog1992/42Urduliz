@@ -6,7 +6,7 @@
 /*   By: jde-orma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 06:55:18 by jde-orma          #+#    #+#             */
-/*   Updated: 2022/12/08 17:24:08 by jde-orma         ###   ########.fr       */
+/*   Updated: 2022/12/13 09:40:18 by jde-orma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ int					ft_toupper(int c);
 size_t				ft_strlen(const char *c);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
-unsigned int		ft_strlcat(char *dst, const char *src, size_t size);
-unsigned int		ft_strlcpy(char *dst, const char *src, size_t size);
+size_t				ft_strlcat(char *dst, const char *src, size_t size);
+size_t				ft_strlcpy(char *dst, const char *src, size_t size);
 void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);

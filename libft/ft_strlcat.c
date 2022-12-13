@@ -6,7 +6,7 @@
 /*   By: jde-orma <jde-orma@42urduliz.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 18:42:48 by jde-orma          #+#    #+#             */
-/*   Updated: 2022/12/13 08:18:54 by jde-orma         ###   ########.fr       */
+/*   Updated: 2022/12/13 20:59:15 by jde-orma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
-	size_t	dsti;
+	size_t	src_length;
+	size_t	dst_length;
 
 	i = 0;
-	dsti = ft_strlen(dst);
-	if (dsti < dstsize - 1 && dstsize > 0)
+	src_length = (size_t)ft_strlen(src);
+	dst_length = (size_t)ft_strlen(dst);
+	if (dstsize == 0 || dst_length >= dstsize)
+		return (src_length + dstsize);
+	while (src[i] && (dstsize > dst_length + i + 1))
 	{
-		while (src[i] && (i < (dstsize - ft_strlen(dst))))
-		{
-			dst[dsti] = src[i];
-			i++;
-			dsti++;
-		}
-		dst[dsti] = '\0';
+		dst[dst_length + i] = src[i];
+		i++;
 	}
-	return (ft_strlen(dst) + ft_strlen(src));
+	dst[dst_length + i] = '\0';
+	return (dst_length + src_length);
 }
