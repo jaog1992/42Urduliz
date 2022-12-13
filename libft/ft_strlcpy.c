@@ -6,25 +6,25 @@
 /*   By: jde-orma <jde-orma@42urduliz.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 18:41:31 by jde-orma          #+#    #+#             */
-/*   Updated: 2022/12/05 08:11:32 by jde-orma         ###   ########.fr       */
+/*   Updated: 2022/12/13 08:21:21 by jde-orma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int	ft_strlcpy(char *dst, const char *src, size_t size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	unsigned int	i;
+	size_t	i;
 
 	i = 0;
-	if (size != 0)
+	if (dstsize != 0)
 	{
-		while (src [i] != '\0' && i < size)
+		while (src [i] && i < (dstsize - 1))
 		{
 			dst[i] = src[i];
 			i++;
 		}
 		dst[i] = '\0';
 	}
-	return (i);
+	return (ft_strlen(src));
 }
