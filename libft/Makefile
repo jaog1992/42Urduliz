@@ -24,7 +24,8 @@ HDR = -I ./
 SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 	  ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_strlcpy.c \
 	  ft_strlcat.c ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c \
-	  ft_memchr.c ft_memcmp.c ft_atoi.c 
+	  ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c ft_atoi.c ft_calloc \
+	  ft_strdup.c
 ## o fichero de tipo objeto. Para el compilador son archivos de salida (resultado) y par el linker/librarian de entrada
 ## Cuando compilas un programa c primero crea una serie de ficheros de tipo objeto (codigo máquina, pero no ejecutable) 
 ## y luego los enlaza mediante el linker (por ejemplo, cogiendo funciones de los includes). Esta serie de ficheros objeto
@@ -33,7 +34,8 @@ SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 OBJ = ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o \
 	  ft_strlen.o ft_memset.o ft_bzero.o ft_memcpy.o ft_memmove.o ft_strlcpy.o \
 	  ft_strlcat.o ft_toupper.o ft_tolower.o ft_strchr.o ft_strrchr.o \
-	  ft_memchr.o ft_memcmp.o ft_atoi.o 
+	  ft_strncmp.o ft_memchr.o ft_memcmp.o ft_strnstr.o ft_atoi.o ft_calloc \
+	  ft_strdup.o
 ##.a fichero de tipo archivo. on grupos de objetos (.o) o librerias estaticas y tambien son inputs del linker.
 ## Usamos el comando "ar" (arhivador) pra crear un archivo de tipo .a
 ##	-r -> Si el archivo de la libreria existe remplazalo por el nuevo
