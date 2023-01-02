@@ -6,13 +6,13 @@
 /*   By: jde-orma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 14:26:29 by jde-orma          #+#    #+#             */
-/*   Updated: 2022/12/08 14:49:06 by jde-orma         ###   ########.fr       */
+/*   Updated: 2023/01/02 23:47:55 by jde-orma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*calloc(size_t count, size_t size)
+void	*ft_calloc(size_t count, size_t size)
 {
 	void	*ptr;
 
@@ -21,4 +21,5 @@ void	*calloc(size_t count, size_t size)
 		return (NULL);
 	ft_bzero(ptr, count * size);
 	return (ptr);
+	free(ptr);
 }

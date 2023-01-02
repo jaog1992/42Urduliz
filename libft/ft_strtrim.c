@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jde-orma <jde-orma@42urduliz.com>          +#+  +:+       +#+        */
+/*   By: jde-orma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 08:09:07 by jde-orma          #+#    #+#             */
-/*   Updated: 2023/01/02 22:23:55 by jde-orma         ###   ########.fr       */
+/*   Created: 2023/01/03 00:19:55 by jde-orma          #+#    #+#             */
+/*   Updated: 2023/01/03 00:47:20 by jde-orma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	int	i;
-	int	len;
+	unsigned char	*ptr;
+	int				i;
 
 	i = 0;
-	len = ft_strlen(s);
-	while (s[i] != '\0')
+	while (set[i])
 	{
-		if (*(char *)(s + i) == (char)c)
-			return ((char *)(s + i));
+		if (!ft_memchr(s1, set[i], ft_strlen(s1)))
+			return ((char *)s1);
+		else
+		{	
+			ptr = ft_memchr(s1, set[i], ft_strlen(s1));
+			*ptr = '\0';
+		}
 		i++;
 	}
-	if ((char)c == '\0' && s[i] == '\0')
-		return ((char *)(s + i));
-	return (NULL);
+	return ((char *)s1);
 }

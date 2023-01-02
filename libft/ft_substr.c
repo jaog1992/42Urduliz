@@ -6,21 +6,28 @@
 /*   By: jde-orma <jde-orma@42urduliz.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 07:53:55 by jde-orma          #+#    #+#             */
-/*   Updated: 2022/12/15 07:53:55 by jde-orma         ###   ########.fr       */
+/*   Updated: 2023/01/02 23:52:02 by jde-orma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char    *ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-   	char    *ptr;
-    size_t  i;
+	char	*ptr;
+	size_t	len_s;
 
-    if (ft_strlen(s) < start)
-        return (NULL);
-    i = 0; 
-   	ptr = calloc(start, len);
-    ft_memcpy((char *)ptr, (char *)(s + start), len);
-    return (ptr);
+	if (!s)
+		return (NULL);
+	len_s = ft_strlen(s);
+	if (len_s < start)
+		start = len_s;
+	if (len_s < (len + start))
+		len = len_s - start;
+	ptr = calloc((len + 1), sizeof(char));
+	if (!ptr)
+		return (NULL);
+	ft_memcpy((char *)ptr, (char *)(s + start), (size_t)len);
+	return (ptr);
+	free (ptr);
 }

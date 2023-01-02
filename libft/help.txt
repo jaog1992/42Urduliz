@@ -36,9 +36,9 @@ PARTE 1
 • memchr  OK
 • memcmp  OK 
 • strnstr OK
-• atoi
-• calloc | malloc
-• strdup | malloc
+• atoi    OK
+• calloc  OK
+• strdup  OK
 
 PARTE 2
 • ft_substr

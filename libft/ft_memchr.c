@@ -6,7 +6,7 @@
 /*   By: jde-orma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 11:16:52 by jde-orma          #+#    #+#             */
-/*   Updated: 2022/12/14 00:19:48 by jde-orma         ###   ########.fr       */
+/*   Updated: 2023/01/03 00:45:56 by jde-orma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,11 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	size_t		i;
 
 	i = 0;
-	if (c != 0 && n != 0)
+	while (i < n)
 	{
-		while (i <= (n - 1))
-		{
-			if (*(char *)(s + i) == (char)c)
-				return ((char *)(s + i));
-			i++;
-		}
+		if (*(unsigned char *)(s + i) == (unsigned char)c)
+			return ((void *)(s + i));
+		i++;
 	}
 	return (NULL);
 }
