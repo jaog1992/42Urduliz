@@ -6,7 +6,7 @@
 /*   By: jde-orma <jde-orma@42urduliz.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 07:53:55 by jde-orma          #+#    #+#             */
-/*   Updated: 2023/01/02 23:52:02 by jde-orma         ###   ########.fr       */
+/*   Updated: 2023/01/13 19:34:56 by jde-orma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		start = len_s;
 	if (len_s < (len + start))
 		len = len_s - start;
-	ptr = calloc((len + 1), sizeof(char));
+	ptr = (char *)calloc((len + 1), sizeof(char));
 	if (!ptr)
 		return (NULL);
-	ft_memcpy((char *)ptr, (char *)(s + start), (size_t)len);
+	ft_memcpy((char *)ptr, (char *)s + start, (size_t)len);
+	ptr[ft_strlen(ptr) + 1] = '\0';
 	return (ptr);
-	free (ptr);
+	free(ptr);
 }
