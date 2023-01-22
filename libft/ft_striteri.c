@@ -6,7 +6,7 @@
 /*   By: jde-orma <jde-orma@42urduliz.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 01:38:07 by jde-orma          #+#    #+#             */
-/*   Updated: 2023/01/22 01:38:07 by jde-orma         ###   ########.fr       */
+/*   Updated: 2023/01/22 03:18:02 by jde-orma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 	i = 0;
 	while (s[i])
 	{
-		f(i, s[i]);
+		f(i, s + i);
 		i++;
 	}
 }
