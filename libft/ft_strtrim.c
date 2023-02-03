@@ -6,7 +6,7 @@
 /*   By: jde-orma <jde-orma@42urduliz.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 00:19:55 by jde-orma          #+#    #+#             */
-/*   Updated: 2023/01/19 18:37:22 by jde-orma         ###   ########.fr       */
+/*   Updated: 2023/01/22 04:09:13 by jde-orma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	end = ft_strlen(s1);
 	while (end > start && ft_char_exists(s1[end - 1], set))
 		end--;
-	ptr = (char*)malloc(sizeof(*s1) * (end - start + 1));
+	ptr = (char *)malloc(sizeof(*s1) * (end - start + 1));
 	if (!ptr)
 		return (NULL);
 	i = 0;

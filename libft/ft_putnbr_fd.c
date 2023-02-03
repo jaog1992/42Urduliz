@@ -6,7 +6,7 @@
 /*   By: jde-orma <jde-orma@42urduliz.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 02:17:50 by jde-orma          #+#    #+#             */
-/*   Updated: 2023/01/22 02:53:30 by jde-orma         ###   ########.fr       */
+/*   Updated: 2023/02/03 20:44:34 by jde-orma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,15 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	ft_putstr_fd(ft_itoa(n), fd);
+	int long	i;
+
+	i = n;
+	if (i < 0)
+	{
+		write(fd, "-", 1);
+		i *= -1;
+	}
+	if (i > 9)
+		ft_putnbr_fd(i / 10, fd);
+	ft_putchar_fd(i % 10 + '0', fd);
 }

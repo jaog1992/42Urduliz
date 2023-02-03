@@ -6,61 +6,52 @@
 /*   By: jde-orma <jde-orma@42urduliz.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 00:33:32 by jde-orma          #+#    #+#             */
-/*   Updated: 2023/01/22 03:21:46 by jde-orma         ###   ########.fr       */
+/*   Updated: 2023/02/03 20:26:13 by jde-orma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_reverse(int i, long num)
+int	ft_nbrlen(int n)
 {
-	char	*ptr;
+	int	len;
 
-	ptr = (char *)malloc(sizeof(char) * (12));
-	ft_bzero(ptr, 12);
-	if (num < 0)
+	len = 0;
+	if (n == 0)
+		len = 1;
+	if (n < 0)
+		len++;
+	while (n != 0)
 	{
-		num = num * -1;
-		ptr[0] = '-';
-		i++;
+		len++;
+		n /= 10;
 	}
-	while ((num / 10) > 0)
-	{
-		ptr[i] = (num % 10) + 48;
-		i++;
-		num = num / 10;
-	}
-	if ((num / 10) == 0)
-		ptr[i] = (num % 10) + 48;
-	return (ptr);
-}
-
-char	*ft_reverted(int i, int count, char *ptr, char *ptr_reverse)
-{
-	if (ptr_reverse[0] == '-')
-	{
-		ptr[0] = ptr_reverse[0];
-		count++;
-	}
-	while (count <= i)
-	{
-		ptr[count] = ptr_reverse[i - count];
-		count++;
-	}
-	return (ptr);
+	return (len);
 }
 
 char	*ft_itoa(int n)
 {
-	long	h;
 	char	*ptr;
-	char	*ptr_reverse;
+	long	num;
+	size_t	len;
 
-	h = n;
-	ptr_reverse = ft_reverse(0, h);
-	ptr = (char *)malloc(sizeof(char) * (ft_strlen(ptr_reverse) + 2));
-	ft_bzero(ptr, (ft_strlen(ptr_reverse) + 2));
+	len = ft_nbrlen(n);
+	num = n;
+	ptr = (char *)malloc(sizeof(char) * (len + 1));
 	if (!ptr)
 		return (NULL);
-	return (ft_reverted(ft_strlen(ptr_reverse), 0, ptr, ptr_reverse));
+	ptr[len--] = '\0';
+	if (num < 0)
+	{
+		ptr[0] = '-';
+		num = -num;
+	}
+	if (num == 0)
+		ptr[0] = '0';
+	while (num > 0)
+	{
+		ptr[len--] = (num % 10) + '0';
+		num /= 10;
+	}
+	return (ptr);
 }

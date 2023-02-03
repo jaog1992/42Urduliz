@@ -6,11 +6,15 @@
 /*   By: jde-orma <jde-orma@42urduliz.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 18:45:17 by jde-orma          #+#    #+#             */
-/*   Updated: 2023/01/22 03:25:44 by jde-orma         ###   ########.fr       */
+/*   Updated: 2023/02/03 21:01:59 by jde-orma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
+#include <unistd.h>
+
+/*This function counts the substrings and allocates the memory fot the char** */
 
 char	**ft_count_substrings(char const *s, char c)
 {
@@ -22,15 +26,26 @@ char	**ft_count_substrings(char const *s, char c)
 	count = 0;
 	while (s[i])
 	{
-		if (s[i] == c)
+		while (s[i] == c)
+			i++;
+		if (s[i])
 			count++;
-		i++;
+		while (s[i] && (s[i] != c))
+			i++;
 	}
-	ptr = (char **)malloc(sizeof(*s) * (count + 2));
+	ptr = (char **)malloc(sizeof(char *) * (count + 1));
 	if (!ptr)
 		return (NULL);
 	return (ptr);
 }
+
+/*Given the char** this function allocates the memory for each substring
+and then copies each substring values to the given char*.
+For that it runs through the string till the first non-occurrence of c.
+Then it runs again through the string till the next ocurrence of c
+This limits the start and end of each of the substrings, which are then given
+enough space on memory and copied using ft_memcpy, then adding the null char
+at the end*/
 
 char	**ft_alloc_substrings(char **ptr, char const *s, char c)
 {
@@ -39,21 +54,29 @@ char	**ft_alloc_substrings(char **ptr, char const *s, char c)
 	size_t	substring_id;
 
 	i = 0;
-	start = 0;
 	substring_id = 0;
 	while (s[i])
 	{
-		if (s[i] == c)
+		while (s[i] == c)
+			i++;
+		start = i;
+		while (s[i] && s[i] != c)
+			i++;
+		if (i > start)
 		{
-			ptr[substring_id] = ft_substr(s, start, i - start);
+			ptr[substring_id] = (char *)malloc(sizeof(char) \
+			* (i - start + 1));
+			ft_memcpy(ptr[substring_id], s + start, i - start);
+			ptr[substring_id][i - start] = '\0';
 			substring_id++;
-			start = i + 1;
 		}
-		i++;
 	}
 	ptr[substring_id] = NULL;
 	return (ptr);
 }
+
+/*This function returns an array of substrings of the s string using
+c as the delimiter. If !s it returns a NULL value*/
 
 char	**ft_split(char const *s, char c)
 {
