@@ -20,7 +20,7 @@
 /* 'c' in the string 's'.                                                     */
 /* If c == '\0' it returns the position of the null character on the string   */
 /* If the character is not found, it returns a NULL.                          */
-/*                                                                            */ 
+/*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strchr(const char *s, int c)
