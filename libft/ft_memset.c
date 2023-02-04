@@ -6,11 +6,26 @@
 /*   By: jde-orma <jde-orma@42urduliz.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 19:37:30 by jde-orma          #+#    #+#             */
-/*   Updated: 2022/12/08 16:53:48 by jde-orma         ###   ########.fr       */
+/*   Updated: 2023/02/04 22:11:45 by jde-orma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/* *************************************************************************
+
+--FUNCTIONALITY--
+This function fills a block of memory (*b) of a given length, in bytes (len)
+with a given value(c).
+
+--CODE EXPLANATION--
+The function works by initializing a pointer 'i' to the start of the memory
+block 'b', and then repeteadly storing the value 'c' at the location 'i',
+incrementing 'i' until 'len' iterations have been performed.
+
+The function returns a pointer to the start of the memory block
+
+   ************************************************************************* */
 
 void	*ft_memset(void *b, int c, size_t len)
 {

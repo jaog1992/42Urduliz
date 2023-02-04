@@ -6,12 +6,24 @@
 /*   By: jde-orma <jde-orma@42urduliz.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 21:46:13 by jde-orma          #+#    #+#             */
-/*   Updated: 2022/12/05 08:01:22 by jde-orma         ###   ########.fr       */
+/*   Updated: 2023/02/04 22:16:53 by jde-orma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/* *************************************************************************
+
+--FUNCTIONALITY--
+This function sets the first 'n' positions of a given pointer (*s) to the
+NULL character '\0'.
+
+--CODE EXPLANATION--
+The function works by initializin a pointer 'i' to the start of the memory
+block 's', and then repeatedly storing the value of '\0' a the location 'i'.
+Being a void function it returns nothin.
+
+   ************************************************************************* */
 void	ft_bzero(void *s, size_t n)
 {
 	unsigned char	*i;
