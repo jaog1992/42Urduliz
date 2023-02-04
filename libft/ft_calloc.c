@@ -12,6 +12,22 @@
 
 #include "libft.h"
 
+/* ************************************************************************** */
+/*                                                                            */
+/* FUNCTIONALITY                                                              */
+/*                                                                            */
+/* This function dynamically allocates memory using the 'malloc' function,    */
+/* and then sets the first 'count * size' bytes of the memory block to zero.  */
+/*                                                                            */
+/* The function first sets a pointer 'ptr' to the result of allocating memory */
+/* using 'malloc'. If the allocation fails, the function returns a NULL       */
+/* pointer. Otherwise, it uses the 'ft_bzero' function to zero-out the        */
+/* memory block.                                                              */
+/*                                                                            */
+/* Finally, the function returns the pointer 'ptr'.                           */
+/*                                                                            */
+/* ************************************************************************** */
+
 void	*ft_calloc(size_t count, size_t size)
 {
 	void	*ptr;
@@ -21,5 +37,4 @@ void	*ft_calloc(size_t count, size_t size)
 		return (NULL);
 	ft_bzero(ptr, count * size);
 	return (ptr);
-	free(ptr);
 }
