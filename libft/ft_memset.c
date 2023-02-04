@@ -6,7 +6,7 @@
 /*   By: jde-orma <jde-orma@42urduliz.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 19:37:30 by jde-orma          #+#    #+#             */
-/*   Updated: 2023/02/04 22:11:45 by jde-orma         ###   ########.fr       */
+/*   Updated: 2023/02/04 23:56:55 by jde-orma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 /* location 'i', incrementing 'i' until 'len' iterations have been            */
 /* performed.                                                                 */
 /*                                                                            */
-/* The function returns a pointer to the start of the memory block
+/* The function returns a pointer to the start of the memory block            */
 /*                                                                            */
 /* ************************************************************************** */
 
