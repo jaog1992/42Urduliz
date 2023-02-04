@@ -12,20 +12,21 @@
 
 #include "libft.h"
 
-/* *************************************************************************
-
---FUNCTIONALITY--
-This function fills a block of memory (*b) of a given length, in bytes (len)
-with a given value(c).
-
---CODE EXPLANATION--
-The function works by initializing a pointer 'i' to the start of the memory
-block 'b', and then repeteadly storing the value 'c' at the location 'i',
-incrementing 'i' until 'len' iterations have been performed.
-
-The function returns a pointer to the start of the memory block
-
-   ************************************************************************* */
+/* ************************************************************************** */
+/*                                                                            */
+/* FUNCTIONALITY                                                              */
+/*                                                                            */
+/* This function fills a block of memory (*b) of a given length, in bytes     */
+/* (len) with a given value(c).                                               */
+/*                                                                            */
+/* The function works by initializing a pointer 'i' to the start of the       */
+/* memory block 'b', and then repeteadly storing the value 'c' at the         */
+/* location 'i', incrementing 'i' until 'len' iterations have been            */
+/* performed.                                                                 */
+/*                                                                            */
+/* The function returns a pointer to the start of the memory block
+/*                                                                            */
+/* ************************************************************************** */
 
 void	*ft_memset(void *b, int c, size_t len)
 {
