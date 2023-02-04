@@ -12,21 +12,22 @@
 
 #include "libft.h"
 
-/* *************************************************************************
-
---FUNCTIONALITY--
-This function copies the first 'n' bytes of *src on the first 'n' bytes of
-*dest.
-
---CODE EXPLANATION--
-The function works by initializing the pointer 's1' and 's2' to the start
-of the memory blocks of 'dest' and 'src'. 
-
-If 'dest' and 'src' are already equal 'dest' is returned.
-
-Then the value of the 'i' position from 's2' is copied to the 'i' position of 
-'s1'.
-   ************************************************************************ */
+/* ************************************************************************** */
+/*                                                                            */
+/* FUNCTIONALITY                                                              */
+/*                                                                            */
+/* This function copies the first 'n' bytes of '*src' on the first 'n' bytes  */
+/* of '*dest.                                                                 */
+/*                                                                            */
+/* The function works by initializing the pointer 's1' and 's2' to the start  */
+/* of the memory blocks of 'dest' and 'src'.                                  */
+/*                                                                            */
+/* If 'dest' and 'src' are already equal 'dest' is returned.                  */
+/*                                                                            */
+/* Then the value of the 'i' position from 's2' is copied to the 'i' position */
+/* of 's1'.                                                                   */
+/*                                                                            */
+/* ************************************************************************** */
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
