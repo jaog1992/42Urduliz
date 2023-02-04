@@ -12,6 +12,20 @@
 
 #include "libft.h"
 
+/* ************************************************************************** */
+/*                                                                            */
+/* FUNCTIONALITY                                                              */
+/*                                                                            */
+/* The function ft_atoi converts the initial portion of the string pointed    */
+/* to by str to int representation.                                           */
+/*                                                                            */
+/* It starts by initializing variables, then skips whitespaces in the input   */
+/* string. Then, it handles the first optional sign and converts the number.  */
+/*                                                                            */
+/* It returns the converted int value.                                        */
+/*                                                                            */
+/* ************************************************************************** */
+
 int	ft_atoi(const char	*str)
 {
 	int	i;

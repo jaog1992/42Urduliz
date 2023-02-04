@@ -11,10 +11,26 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <unistd.h>
 
-/*This function counts the substrings and allocates the memory fot the char** */
+/* ************************************************************************** */
+/*                                                                            */
+/* FUNCTIONALITY                                                              */
+/*                                                                            */
+/* The ft_split function returns an array of substrings from the s string     */
+/* using 'c' as the delimiter. If !s it returns a NULL value                  */
+/*                                                                            */
+/* The ft_count_substrings function counts the substrings and allocates the   */
+/* memory fot the char**.                                                     */
+/*                                                                            */
+/* Given the char** the ft_alloc_substrings function allocates the memory for */
+/* each substring and then copies each substring values to the given char*.   */
+/* For that it runs through the string till the first non-occurrence of c.    */
+/* Then it runs again through the string till the next ocurrence of c.        */
+/* This limits the start and end of each of the substrings, which are then    */
+/* given enough space on memory and copied using ft_memcpy, then adding the   */
+/* null char at the end.                                                      */
+/*                                                                            */
+/* ************************************************************************** */
 
 char	**ft_count_substrings(char const *s, char c)
 {
@@ -38,14 +54,6 @@ char	**ft_count_substrings(char const *s, char c)
 		return (NULL);
 	return (ptr);
 }
-
-/*Given the char** this function allocates the memory for each substring
-and then copies each substring values to the given char*.
-For that it runs through the string till the first non-occurrence of c.
-Then it runs again through the string till the next ocurrence of c
-This limits the start and end of each of the substrings, which are then given
-enough space on memory and copied using ft_memcpy, then adding the null char
-at the end*/
 
 char	**ft_alloc_substrings(char **ptr, char const *s, char c)
 {
@@ -74,9 +82,6 @@ char	**ft_alloc_substrings(char **ptr, char const *s, char c)
 	ptr[substring_id] = NULL;
 	return (ptr);
 }
-
-/*This function returns an array of substrings of the s string using
-c as the delimiter. If !s it returns a NULL value*/
 
 char	**ft_split(char const *s, char c)
 {

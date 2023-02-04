@@ -12,6 +12,25 @@
 
 #include "libft.h"
 
+/* ************************************************************************** */
+/*                                                                            */
+/* FUNCTIONALITY                                                              */
+/*                                                                            */
+/* ft_itoa converts the integer value 'n' to its corresponding string         */
+/* representation and returns a pointer to the newly created string.          */
+/*                                                                            */
+/* It uses ft_nbrlen to calculate the length of the string.                   */
+/* The function first mallocs the memory needed for the string, and then      */
+/* initializes it by storing each digit of the number, starting from the      */
+/* rightmost digit and working towards the left.                              */
+/*                                                                            */
+/* If the number is negative, it stores a '-' sign at the beginning of the    */
+/* string.                                                                    */
+/*                                                                            */
+/* Finally, the function returns the pointer 'ptr'.                           */
+/*                                                                            */
+/* ************************************************************************** */
+
 int	ft_nbrlen(int n)
 {
 	int	len;
