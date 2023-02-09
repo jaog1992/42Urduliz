@@ -6,7 +6,7 @@
 /*   By: jde-orma <jde-orma@42urduliz.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 18:45:17 by jde-orma          #+#    #+#             */
-/*   Updated: 2023/02/09 03:35:36 by jde-orma         ###   ########.fr       */
+/*   Updated: 2023/02/09 03:41:56 by jde-orma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,11 @@ char	**ft_count_substrings(char const *s, char c)
 	return (ptr);
 }
 
+/* After freeing the memory we are setting the pointer to NULL to indicate
+that the pointer is no longer valid and should not be used: After freeing
+memory, accessing or modifying the data pointed to by the freed pointer
+results in undefined behavior, as the memory is no longer under the control
+of the program*/
 char	**ft_free_substrings(char **ptr)
 {
 	size_t	i;
