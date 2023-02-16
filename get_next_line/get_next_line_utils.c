@@ -12,6 +12,31 @@
 
 #include "get_next_line.h"
 
+/* ************************************************************************** */
+/*                                                                            */
+/* FUNCTIONALITY                                                              */
+/*                                                                            */
+/* -- ft_strlen | ft_strchr | ft_strjoin --                                   */
+/*                                                                            */
+/* See libft project                                                          */
+/*                                                                            */
+/* -- ft_alloc_new_line --                                                    */
+/*                                                                            */
+/* The newly read line has been joined to the previous one. Thus, line_str    */
+/* has 2 \n characters. once the first ocurrence of \n has been encountered   */
+/* the start of the new line is found. Then the next characters can be copied */
+/* to a newly declared string (str).                                           */
+/*                                                                            */
+/* -- get_next_line --                                                        */
+/*                                                                            */
+/* The line_str is searched till the first ocurrence of \n.                   */
+/* If there is not such a character, the string is freed.                     */
+/* If \n is encountered the correct size of str is allocated.                 */
+/* The str is copied to the new str variable, and the old line_str is fred.   */
+/* str is returned.                                                           */
+/*                                                                            */
+/* ************************************************************************** */
+
 size_t	ft_strlen(const char *c)
 {
 	long unsigned int	a;
@@ -68,11 +93,7 @@ char	*ft_strjoin(char *line_str, char *buff)
 	return (str);
 }
 
-/*The newly read line has been joined to the previous one. Thus, line_str has
-2 \n characters. once the first ocurrence of \n has been encountered the
-start of the new line is found. Then the next characters can be copied to a 
-newly declared string (str)*/
-char	*ft_get_line(char *line_str)
+char	*ft_alloc_new_line(char *line_str)
 {
 	int		i;
 	char	*str;
@@ -100,11 +121,6 @@ char	*ft_get_line(char *line_str)
 	return (str);
 }
 
-/*The line_str is searched till the first ocurrence of \n.
-If there is not such a character, the string is fred.
-If \n is encountered the correct size of str is allocated
-The str is copied to the new str variable, and the old line_str is fred.
-str is returned*/
 char	*ft_set_new_line_str(char *line_str)
 {
 	int		i;

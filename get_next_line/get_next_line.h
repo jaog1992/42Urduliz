@@ -23,9 +23,9 @@
 size_t	ft_strlen(char *s);
 char	*ft_strchr(char *s, int c);
 char	*ft_strjoin(char *left_str, char *buff);
-char	*ft_get_line(char *line_str);
+char	*ft_alloc_new_line(char *line_str);
 char	*ft_set_new_line_str(char *line_str);
-char	*ft_read_to_line_str(int fd, char *line_str);
+char	*ft_read_line_to_string(int fd, char *line_str);
 char	*get_next_line(int fd);
 
 #endif

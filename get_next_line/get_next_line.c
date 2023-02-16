@@ -12,12 +12,28 @@
 
 #include "get_next_line.h"
 
-/* A string of the of the current buffer size is allocated on memory.
-The file is read on Buffer-sized chunks till the \n character is found or the
-EOF is reached. The read characters are been concatenated at the en of the str.
-The buffer is then freed an the line is returned.
-*/
-char	*ft_read_to_line_str(int fd, char *line_str)
+/* ************************************************************************** */
+/*                                                                            */
+/* FUNCTIONALITY                                                              */
+/*                                                                            */
+/* -- ft_read_line_to_string --                                               */
+/*                                                                            */
+/* A "buff" string of the current buffer size is allocated on memory.         */
+/* The file is read on Buffer-sized chunks till the '\n' character is found   */
+/* or the EOF is reached. The read characters are been concatenated at the    */
+/* end  of the str "line_str" . The buffer is then freed and the line is      */
+/* returned.                                                                  */
+/*                                                                            */
+/* -- get_next_line --                                                        */
+/*                                                                            */
+/* It firstly joins the next line string with the previously read line.       */
+/* Then saves the new line on the "next_line" variable with "ft_get_line"     */
+/* Erases the previously read line with "ft_set_new_line_str".                */
+/* Finally returns the next_line string                                       */
+/*                                                                            */
+/* ************************************************************************** */
+
+char	*ft_read_line_to_string(int fd, char *line_str)
 {
 	char	*buff;
 	int		read_bytes;
@@ -41,10 +57,6 @@ char	*ft_read_to_line_str(int fd, char *line_str)
 	return (line_str);
 }
 
-/* It firstly joins the next line string with the previous one.
-Then saves the new line on the "next_line" variable iwht ft_get_line
-Erases the previously read line with ft_set_new_line_str.
-Finally returns the next_line string*/
 char	*get_next_line(int fd)
 {
 	char		*next_line;
@@ -52,7 +64,7 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	line_str = ft_read_to_line_str(fd, line_str);
+	line_str = ft_read_line_to_string(fd, line_str);
 	if (!line_str)
 		return (NULL);
 	next_line = ft_get_line(line_str);
