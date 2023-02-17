@@ -22,10 +22,10 @@ FLAG = -Wall -Wextra -Werror -D BUFFER_SIZE=42
 HDR = -I ./
 
 ## Source/name of the .c files to be compiled
-SRC = get_next_file.c get_next_line_utils.c
+SRC = get_next_line.c get_next_line_utils.c
 
 ## Object files to be created
-OBJ = get_next_file.c get_next_line_utils.o
+OBJ = get_next_line.c get_next_line_utils.o
 
 all: $(NAME)
 

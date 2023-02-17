@@ -67,7 +67,38 @@ char	*get_next_line(int fd)
 	line_str = ft_read_line_to_string(fd, line_str);
 	if (!line_str)
 		return (NULL);
-	next_line = ft_get_line(line_str);
+	next_line = ft_alloc_new_line(line_str);
 	line_str = ft_set_new_line_str(line_str);
 	return (next_line);
+}
+
+int	main(void)
+{
+	char	*line;
+	int		i;
+	int		fd1;
+	int		fd2;
+	int		fd3;
+
+	fd1 = open("tests/text1.txt", O_RDONLY);
+	fd2 = open("tests/text2.txt", O_RDONLY);
+	fd3 = open("tests/text3.txt", O_RDONLY);
+	i = 1;
+	while (i < 4)
+	{
+		line = get_next_line(fd1);
+		printf("line [%02d]: %s", i, line);
+		free(line);
+		line = get_next_line(fd2);
+		printf("line [%02d]: %s", i, line);
+		free(line);
+		line = get_next_line(fd3);
+		printf("line [%02d]: %s", i, line);
+		free(line);
+		i++;
+	}
+	close(fd1);
+	close(fd2);
+	close(fd3);
+	return (0);
 }
