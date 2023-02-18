@@ -28,7 +28,7 @@
 
 ### Requirements
 
-You will need a **`gcc` compiler** and the **`unistd`, **`stdlib`, **`stdio` and **`fcntl` standard **C libraries** to run it.
+You will need a **`gcc` compiler** and the `unistd`, `stdlib`, `stdio` and `fcntl` standard **C libraries** to run it.
 
 ### Instructions
 
