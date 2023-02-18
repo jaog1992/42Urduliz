@@ -7,11 +7,11 @@
 </p>
 
 <p align="center">
-	<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/jaog1992/42Urduliz/tree/master/get_next_line?label=Code%20size&color=lightblue" />
-	<img alt="Number of lines of code" src="https://img.shields.io/tokei/lines/github/jaog1992/42Urduliz/tree/master/get_next_line?label=Lines%20of%20code&color=critical" />
-	<img alt="Code language count" src="https://img.shields.io/github/languages/count/jaog1992/42Urduliz/tree/master/get_next_line?label=Languages&color=yellow" />
-	<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/jaog1992/42Urduliz/tree/master/get_next_line?label=Top%20language&color=blue" />
-	<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/jaog1992/42Urduliz/tree/master/get_next_line?label=Last%20commit&color=green" />
+	<img alt="GitHub code size in bytes" src="https://img.shields.io/endpoint?url=https://api.github.com/repos/jaog1992/42Urduliz/contents/get_next_line&label=Code%20size&color=lightblue" />
+	<img alt="Number of lines of code" src="https://img.shields.io/endpoint?url=https://api.github.com/repos/jaog1992/42Urduliz/contents/get_next_line&label=Lines%20of%20code&color=critical" />
+	<img alt="Code language count" src="https://img.shields.io/endpoint?url=https://api.github.com/repos/jaog1992/42Urduliz/contents/get_next_line&label=Languages&color=yellow" />
+	<img alt="GitHub top language" src="https://img.shields.io/endpoint?url=https://api.github.com/repos/jaog1992/42Urduliz/contents/get_next_line&label=Top%20language&color=blue" />
+	<img alt="GitHub last commit" src="https://img.shields.io/endpoint?url=https://api.github.com/repos/jaog1992/42Urduliz/commits?path=get_next_line&label=Last%20commit&color=green" />
 </p>
 
 <h3 align="center">
