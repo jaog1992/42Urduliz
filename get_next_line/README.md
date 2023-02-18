@@ -5,7 +5,6 @@
 <p align="center">
 	<b><i>How can we read a new line from a File descriptor?</i></b><br>
 </p>
-
 	<img alt="GitHub code size in bytes" src="https://img.shields.io/endpoint?url=https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jaog1992/42Urduliz/master/get_next_line&label=Code%20size&color=lightblue" />
 	<img alt="Number of lines of code" src="https://img.shields.io/endpoint?url=https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jaog1992/42Urduliz/master/get_next_line&label=Lines%20of%20code&color=critical" />
 	<img alt="Code language count" src="https://img.shields.io/endpoint?url=https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jaog1992/42Urduliz/master/get_next_line&label=Languages&color=yellow" />
