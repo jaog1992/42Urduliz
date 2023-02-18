@@ -6,12 +6,11 @@
 	<b><i>How can we read a new line from a File descriptor?</i></b><br>
 </p>
 
-<p align="center">
-	<img alt="GitHub code size in bytes" src="https://img.shields.io/endpoint?url=https://api.github.com/repos/jaog1992/42Urduliz/contents/get_next_line&label=Code%20size&color=lightblue" />
-	<img alt="Number of lines of code" src="https://img.shields.io/endpoint?url=https://api.github.com/repos/jaog1992/42Urduliz/contents/get_next_line&label=Lines%20of%20code&color=critical" />
-	<img alt="Code language count" src="https://img.shields.io/endpoint?url=https://api.github.com/repos/jaog1992/42Urduliz/contents/get_next_line&label=Languages&color=yellow" />
-	<img alt="GitHub top language" src="https://img.shields.io/endpoint?url=https://api.github.com/repos/jaog1992/42Urduliz/contents/get_next_line&label=Top%20language&color=blue" />
-	<img alt="GitHub last commit" src="https://img.shields.io/endpoint?url=https://api.github.com/repos/jaog1992/42Urduliz/commits?path=get_next_line&label=Last%20commit&color=green" />
+	<img alt="GitHub code size in bytes" src="https://img.shields.io/endpoint?url=https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jaog1992/42Urduliz/master/get_next_line&label=Code%20size&color=lightblue" />
+	<img alt="Number of lines of code" src="https://img.shields.io/endpoint?url=https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jaog1992/42Urduliz/master/get_next_line&label=Lines%20of%20code&color=critical" />
+	<img alt="Code language count" src="https://img.shields.io/endpoint?url=https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jaog1992/42Urduliz/master/get_next_line&label=Languages&color=yellow" />
+	<img alt="GitHub top language" src="https://img.shields.io/endpoint?url=https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jaog1992/42Urduliz/master/get_next_line&label=Top%20language&color=blue" />
+	<img alt="GitHub last commit" src="https://img.shields.io/endpoint?url=https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jaog1992/42Urduliz/master/get_next_line&label=Last%20commit&color=green" />
 </p>
 
 <h3 align="center">
