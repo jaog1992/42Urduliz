@@ -7,8 +7,8 @@
 </p>
 
 <p align="center">
-	<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/jaog1992/get_next_line?color=lightblue" />
-	<img alt="Number of lines of code" src="https://img.shields.io/tokei/lines/github/jaog1992/42Urduliz/get_next_line?color=critical" />
+	<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/jaog1992/42Urduliz%2get_next_line?color=lightblue" />
+	<img alt="Number of lines of code" src="https://img.shields.io/tokei/lines/github/jaog1992/get_next_line?color=critical" />
 	<img alt="Code language count" src="https://img.shields.io/github/languages/count/jaog1992/42Urduliz/tree/master/get_next_line?color=yellow" />
 	<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/jaog1992/42Urduliz/tree/master/get_next_line?color=blue" />
 	<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/jaog1992/42Urduliz/tree/master/get_next_line?color=green" />
@@ -28,7 +28,9 @@
 
 > _The aim of this project is to code a function that reads and returns a line from a file descriptor._
 
-	This project consists of coding a function that returns one line at a time from a text file. After finishing this project, you will be familiar with File descriptors and the open/read/ close functions as well as with defining the correct BUFFER_SIZE for a given task. 
+	This project consists of coding a function that returns one line at a time from a text file. \n
+	After finishing this project, you will be familiar with File descriptors and the open/read/close \n
+	functions as well as with defining the correct BUFFER_SIZE for a given task. 
 
 
 ## 🛠️ Usage
