@@ -19,8 +19,8 @@
 
 > _The aim of this project is to code a function that reads and returns a line from a file descriptor._
 
-	This project consists of coding a function that returns one line at a time from a text file. \n
-	After finishing this project, you will be familiar with File descriptors and the open/read/close \n
+	This project consists of coding a function that returns one line at a time from a text file.
+	After finishing this project, you will be familiar with File descriptors and the open/read/close
 	functions as well as with defining the correct BUFFER_SIZE for a given task. 
 
 
@@ -28,7 +28,7 @@
 
 ### Requirements
 
-You will need a **`gcc` compiler** and the 'unistd', 'stdlib', 'stdio' and 'fcntl' standard **C libraries** to run it.
+You will need a **`gcc` compiler** and the **`unistd`, **`stdlib`, **`stdio` and **`fcntl` standard **C libraries** to run it.
 
 ### Instructions
 
