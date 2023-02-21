@@ -25,7 +25,7 @@
 /* The newly read line has been joined to the previous one. Thus, line_str    */
 /* has 2 \n characters. once the first ocurrence of \n has been encountered   */
 /* the start of the new line is found. Then the next characters can be copied */
-/* to a newly declared string (str).                                           */
+/* to a newly declared string (str).                                          */
 /*                                                                            */
 /* -- get_next_line --                                                        */
 /*                                                                            */

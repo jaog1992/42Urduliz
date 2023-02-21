@@ -71,7 +71,7 @@ char	*get_next_line(int fd)
 	line_str = ft_set_new_line_str(line_str);
 	return (next_line);
 }
-
+/*
 int	main(void)
 {
 	char	*line;
@@ -90,3 +90,4 @@ int	main(void)
 	close(fd1);
 	return (0);
 }
+*/
