@@ -11,29 +11,26 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <unistd.h>
-//#include <stdio.h>
-//#include <fcntl.h>
 
 char	*ft_read_prev_line(int fd, char *prev_line)
 {
 	char	*buff;
-	int		rd_bytes;
+	int		read_bytes;
 
 	buff = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buff)
 		return (NULL);
-	rd_bytes = 1;
-	while (!ft_strchr(prev_line, '\n') && rd_bytes != 0)
+	read_bytes = 1;
+	while (!ft_strchr(prev_line, '\n') && read_bytes != 0)
 	{
-		rd_bytes = read(fd, buff, BUFFER_SIZE);
-		if (rd_bytes == -1)
+		read_bytes = read(fd, buff, BUFFER_SIZE);
+		if (read_bytes == -1)
 		{
 			free(buff);
 			free(prev_line);
 			return (NULL);
 		}
-		buff[rd_bytes] = '\0';
+		buff[read_bytes] = '\0';
 		prev_line = ft_strjoin(prev_line, buff);
 	}
 	free(buff);
@@ -112,18 +109,12 @@ char	*get_next_line(int fd)
 /*int	main(void)
 {
 	char	*line;
-	int		i;
-	int		fd1;
+	int		fd;
 
-	fd1 = open("tests/text1.txt", O_RDONLY);
-	i = 1;
-	while (i < 4)
-	{
-		line = get_next_line(fd1);
-		printf("line [%02d]: %s", i, line);
-		free(line);
-		i++;
-	}
-	close(fd1);
+	fd = open("tests/text2.txt", O_RDONLY);
+	line = get_next_line(fd);
+	printf("The read line is: %s", line);
+	free(line);
+	close(fd);
 	return (0);
 }*/
