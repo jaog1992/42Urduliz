@@ -25,7 +25,7 @@ HDR = -I ./
 SRC = get_next_line.c get_next_line_utils.c get_next_line.h
 
 ## Object files to be created
-OBJ = get_next_line.c get_next_line_utils.o
+OBJ = get_next_line.o get_next_line_utils.o
 
 all: $(NAME)
 
