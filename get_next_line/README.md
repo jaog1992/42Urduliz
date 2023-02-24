@@ -19,14 +19,14 @@
 
 > _The aim of this project is to code a function that reads and returns a line from a file descriptor._
 
-	This project consists of coding a function that returns one line at a time from a text file.
-	After finishing this project, you will be familiar with:
+This project consists of coding a function that returns one line at a time from a text file.
+After finishing this project, you will be familiar with:
 	
-		- [x] File descriptors 
-		- [x] open/read/close functions
-		- [x] BUFFER_SIZE optimization
-		- [x] Offset
-		- [x] Static variables
+	- [x] File descriptors 
+	- [x] open/read/close functions
+	- [x] BUFFER_SIZE optimization
+	- [x] Offset
+	- [x] Static variables
 
 
 ## 🛠️ Usage
