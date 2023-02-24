@@ -13,7 +13,7 @@
 ## The name of the variable always starts with Uppercase.
 
 ## Executable name
-NAME = a.out
+NAME = get_next_line.out
 
 ## gcc compilator execution flag
 FLAG = -Wall -Wextra -Werror -D BUFFER_SIZE=42
@@ -22,7 +22,7 @@ FLAG = -Wall -Wextra -Werror -D BUFFER_SIZE=42
 HDR = -I ./
 
 ## Source/name of the .c files to be compiled
-SRC = get_next_line.c get_next_line_utils.c
+SRC = get_next_line.c get_next_line_utils.c get_next_line.h
 
 ## Object files to be created
 OBJ = get_next_line.c get_next_line_utils.o
@@ -33,7 +33,7 @@ $(NAME):
 	gcc $(FLAG) -c $(SRC) $(HDR)
 	ar -rcs $(NAME) $(OBJ)
 	ranlib $(NAME)
-
+	
 clean:
 	/bin/rm -f *.o
 

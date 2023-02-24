@@ -11,68 +11,105 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <unistd.h>
+//#include <stdio.h>
+//#include <fcntl.h>
 
-/* ************************************************************************** */
-/*                                                                            */
-/* FUNCTIONALITY                                                              */
-/*                                                                            */
-/* -- ft_read_line_to_string --                                               */
-/*                                                                            */
-/* A "buff" string of the current buffer size is allocated on memory.         */
-/* The file is read on Buffer-sized chunks till the '\n' character is found   */
-/* or the EOF is reached. The read characters are been concatenated at the    */
-/* end  of the str "line_str" . The buffer is then freed and the line is      */
-/* returned.                                                                  */
-/*                                                                            */
-/* -- get_next_line --                                                        */
-/*                                                                            */
-/* It firstly joins the next line string with the previously read line.       */
-/* Then saves the new line on the "next_line" variable with "ft_get_line"     */
-/* Erases the previously read line with "ft_set_new_line_str".                */
-/* Finally returns the next_line string                                       */
-/*                                                                            */
-/* ************************************************************************** */
-
-char	*ft_read_line_to_string(int fd, char *line_str)
+char	*ft_read_prev_line(int fd, char *prev_line)
 {
 	char	*buff;
-	int		read_bytes;
+	int		rd_bytes;
 
 	buff = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buff)
 		return (NULL);
-	read_bytes = 1;
-	while (!ft_strchr(line_str, '\n') && read_bytes != 0)
+	rd_bytes = 1;
+	while (!ft_strchr(prev_line, '\n') && rd_bytes != 0)
 	{
-		read_bytes = read(fd, buff, BUFFER_SIZE);
-		if (read_bytes == -1)
+		rd_bytes = read(fd, buff, BUFFER_SIZE);
+		if (rd_bytes == -1)
 		{
 			free(buff);
+			free(prev_line);
 			return (NULL);
 		}
-		buff[read_bytes] = '\0';
-		line_str = ft_strjoin(line_str, buff);
+		buff[rd_bytes] = '\0';
+		prev_line = ft_strjoin(prev_line, buff);
 	}
 	free(buff);
-	return (line_str);
+	return (prev_line);
+}
+
+char	*ft_get_new_line(char *prev_line)
+{
+	int		i;
+	char	*str;
+
+	i = 0;
+	if (!prev_line[i])
+		return (NULL);
+	while (prev_line[i] && prev_line[i] != '\n')
+		i++;
+	str = (char *)malloc(sizeof(char) * (i + 2));
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (prev_line[i] && prev_line[i] != '\n')
+	{
+		str[i] = prev_line[i];
+		i++;
+	}
+	if (prev_line[i] == '\n')
+	{
+		str[i] = prev_line[i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
+}
+
+char	*ft_new_prev_line(char *prev_line)
+{
+	int		i;
+	int		j;
+	char	*str;
+
+	i = 0;
+	while (prev_line[i] && prev_line[i] != '\n')
+		i++;
+	if (!prev_line[i])
+	{
+		free(prev_line);
+		return (NULL);
+	}
+	str = (char *)malloc(sizeof(char) * (ft_strlen(prev_line) - i + 1));
+	if (!str)
+		return (NULL);
+	i++;
+	j = 0;
+	while (prev_line[i])
+		str[j++] = prev_line[i++];
+	str[j] = '\0';
+	free(prev_line);
+	return (str);
 }
 
 char	*get_next_line(int fd)
 {
 	char		*next_line;
-	static char	*line_str;
+	static char	*prev_line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	line_str = ft_read_line_to_string(fd, line_str);
-	if (!line_str)
+	prev_line = ft_read_prev_line(fd, prev_line);
+	if (!prev_line)
 		return (NULL);
-	next_line = ft_alloc_new_line(line_str);
-	line_str = ft_set_new_line_str(line_str);
+	next_line = ft_get_new_line(prev_line);
+	prev_line = ft_new_prev_line(prev_line);
 	return (next_line);
 }
-/*
-int	main(void)
+
+/*int	main(void)
 {
 	char	*line;
 	int		i;
@@ -89,5 +126,4 @@ int	main(void)
 	}
 	close(fd1);
 	return (0);
-}
-*/
+}*/
