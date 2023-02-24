@@ -16,9 +16,14 @@
 /*                                                                            */
 /* char	*ft_read_till_newline_char(int fd, char *prev_line)                   */
 /*                                                                            */
-/* We join prev_line with the buffer till the newline char is found.          */
-/* We protect the malloc.                                                     */
-/* If the reading fails, we free the allocated memory and return a NULL       */
+/* Reads from a file descriptor until a newline character is encountered,     */
+/* and joins the previous line with the newly read buffer data. Protects      */
+/* against malloc errors and frees memory if the read fails.                  */
+/*                                                                            */
+/* 		fd: File Descriptor to read from                                      */
+/* 		prev_line: the previously read line to be joined with the buffer data */
+/*                                                                            */
+/* 		returns: the joined line, or NULL if an error occurred                */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +56,13 @@ char	*ft_read_till_newline_char(int fd, char *prev_line)
 /*                                                                            */
 /* char	*ft_get_new_line(char *prev_line)                                     */
 /*                                                                            */
-/* We search the newline char on the previousley saved string.                */
-/* We allocate the size of the array + 2 chars -> '\n' and '\0'.              */
-/* We protect the malloc.													  */
-/* We copy the string and then return it.                                     */
+/* Searches for the newline character on the previously saved string,         */
+/* allocates enough memory to hold the line, copies the line to the new       */
+/* string, and returns it. Protects against malloc errors.          		  */
+/*                                                                            */
+/* 		prev_line: the previously read line                                   */
+/*                                                                            */
+/*      returns: the new line, or NULL if an error occurred                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,20 +98,13 @@ char	*ft_get_new_line(char *prev_line)
 /*                                                                            */
 /* char	*ft_save_prev_line(char *prev_line)                                   */
 /*                                                                            */
-/* This function is meant for saving the characters read after \n for the     */
-/* next call to get_next_line, as 'prev_line' is declared as a static char    */
-/* in that function.                                                          */
+/* Searches for the newline character on the previously read line, allocates  */
+/* memory for the trimmed line, copies the trimmed line to a new string, and  */
+/* frees the old string. Protects against malloc errors.                      */
 /*                                                                            */
-/* This is needed, as the buffer offset may be far advanced the previous      */
-/* ocurrence of the newline character and we should be able to concatenate    */
-/* the previously read chars that were not included on the 'next_line' string */
+/* 		prev_line: the previously read line                                   */
 /*                                                                            */
-/* We search for the ocurrence of the newline character on 'prev_line'.       */
-/* We allocate enough memory for chars that were trimmed on the 'next_line'	  */
-/* string.                                                                    */
-/*                                                                            */
-/* We copy they information to a new string and we free the allocated memory  */
-/* for prev_line.                                                             */
+/* 		returns: the trimmed line, or NULL if an error occurred               */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,21 +138,10 @@ char	*ft_save_prev_line(char *prev_line)
 /*                                                                            */
 /* char	*get_next_line(int fd)                                                */
 /*                                                                            */
-/* This function is meant for returning the next line to be read from a given */
-/* file.                                                                      */
-/*                                                                            */
-/* For that, the buffer reads a set of BUFFER_SIZE chars each iteration till  */
-/* till the first ocurrence of '\n' occurs. Then the red string is stored on  */
-/* the 'prev_line' string.                                                    */
-/*                                                                            */
-/* Then, given the overlap that is likely to happen on the last buffer-read,  */
-/* the string is 'split' in two:                                              */
-/*    - The next line -> The line to be returned                              */
-/*    - The previous line -> The spare string after the first ocurrence of    */
-/*		'\n' on the string                                                    */
-/* The 'prev_line' string needs to be static, as it must save it´s value      */
-/* between function calls. Therefore, once 'next_line' is returned, we save	  */
-/* the 'prev_line'                                                            */
+/* Reads the next line from a file descriptor, joining any previously         */
+/* unread buffer data from the previous call (static variable!).              */
+/* Returns the next line and saves any remaining buffer data for the next     */
+/* call. Protects against invalid file descriptor values or BUFFER_SIZE.      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,15 +160,32 @@ char	*get_next_line(int fd)
 	return (next_line);
 }
 
-/*int	main(void)
+/*int	main(int argc, char **argv)
 {
-	char	*line;
 	int		fd;
+	char	*line;
 
-	fd = open("tests/text2.txt", O_RDONLY);
-	line = get_next_line(fd);
-	printf("The read line is: %s", line);
-	free(line);
-	close(fd);
+	if (argc == 2)
+	{
+		fd = open(argv[1], O_RDONLY);
+		if (fd == -1)
+		{
+			perror("Error while OPENING the text file");
+			return (1);
+		}
+		while (get_next_line(fd))
+		{
+			line = get_next_line(fd);
+			printf("%s\n", line);
+		}
+		free(line);
+		if (close(fd) == -1)
+		{
+			perror("Error while CLOSING the text file");
+			return (1);
+		}
+	}
+	else
+		printf("Set only 2 arguments: %s + filename\n", argv[0]);
 	return (0);
 }*/
