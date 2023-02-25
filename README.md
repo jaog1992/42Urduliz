@@ -19,16 +19,16 @@
 
 > _The aim of this repository is to serve as the online directory of the my ongoing 42Urduliz cursus projects_
 
-Project  | 	Grade
-------------- | -------------
+Project  | Grade
+:--- | :---
 CURSUS  | Level 1
 ******  | ******
 libft  | 100% (No bonus)
 get_next_line  | ongoing
 printf  | ongoing
 
-Project  | 	Grade
-------------- | -------------
+Project  | Grade
+|:--- | :---
 Picine  | Level 6.65%
 
 ## 🛠️ Usage
