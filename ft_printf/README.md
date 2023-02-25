@@ -1,9 +1,7 @@
 <h1 align="center">
-	📖 printf
+	📖 printf - :exclamation: ON-GOING projet
 </h1>
-<h1 align="center">
-	:exclamation: Project status: ON-GOING :exclamation:
-</h1>
+
 <p align="center">
 	<b><i>How can we print variable values on the terminal?</i></b><br>
 
@@ -29,14 +27,14 @@
 
 Acronym  | Variable convertion
 ------------- | -------------
-%c  | 1 chr
-%s  | 1 string
-%p  | 1 void * in hex format
-%d  | 1 Number in dec format
-%i  | 1 Integer in dec format
-%u  | 1 Unsigned Integer in dec format
-%x  | 1 Number in hex format in lowercase
-%X  | 1 Number in hex format in uppercase
+%c  | Chr
+%s  | String
+%p  | void * in hex format
+%d  | Number in dec format
+%i  | Integer in dec format
+%u  | Unsigned Integer in dec format
+%x  | Number in hex format in lowercase
+%X  | Number in hex format in uppercase
 %%  | Prints the '%' symbol
 
 
