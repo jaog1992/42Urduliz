@@ -1,5 +1,5 @@
 <h1 align="center">
-	📖 42Urduliz
+	<img src="https://raw.githubusercontent.com/jaog1992/42Urduliz/main/img/42.jpg" width="30px"> 42Urduliz
 </h1>
 
 <p align="center">
@@ -19,16 +19,16 @@
 
 > _The aim of this repository is to serve as the online directory of the my ongoing 42Urduliz cursus projects_
 
-Project  | 	Grade
-------------- | -------------
+Project  | Grade
+:--- | :---
 CURSUS  | Level 1
 ******  | ******
 libft  | 100% (No bonus)
 get_next_line  | ongoing
 printf  | ongoing
 
-Project  | 	Grade
-------------- | -------------
+Project  | Grade
+|:--- | :---
 Picine  | Level 6.65%
 
 ## 🛠️ Usage
