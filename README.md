@@ -1,5 +1,5 @@
 <h1 align="center">
-	📖 42Urduliz
+	<img src="https://raw.githubusercontent.com/jaog1992/42Urduliz/main/img/42.jpg" width="30px"> 42Urduliz
 </h1>
 
 <p align="center">
