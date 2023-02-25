@@ -1,5 +1,5 @@
 <h1 align="center">
-	📖 printf - :exclamation: ON-GOING projet
+	📖 printf - (:exclamation: Ongoing)
 </h1>
 
 <p align="center">
