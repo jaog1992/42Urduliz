@@ -29,7 +29,7 @@ printf  | ongoing
 
 Project  | Grade
 |:--- | :---
-Piscine  | Level 6.65%
+Piscine  | Level 6.65
 
 ## 🛠️ Usage
 
