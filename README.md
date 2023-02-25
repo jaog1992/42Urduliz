@@ -29,13 +29,13 @@ printf  | ongoing
 
 Project  | Grade
 |:--- | :---
-Picine  | Level 6.65%
+Piscine  | Level 6.65%
 
 ## 🛠️ Usage
 
 ### Requirements
 
-You will need a **`gcc` compiler** and ` standard **C libraries** to run the projects and make tests.
+You will need a **`gcc` compiler** and `standard **C libraries** to run the projects and make tests.
 
 ## 📋 Testing
 
