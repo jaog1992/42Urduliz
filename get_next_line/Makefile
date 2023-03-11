@@ -16,6 +16,7 @@
 NAME = get_next_line.out
 
 ## gcc compilator execution flag
+# Para depurar usa el flag -g3
 FLAG = -Wall -Wextra -Werror -D BUFFER_SIZE=42
 
 ## Directory to save the executable. ./ is the default
