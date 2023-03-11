@@ -76,7 +76,10 @@ char	*ft_get_new_line(char *prev_line)
 		return (NULL);
 	while (prev_line[i] && prev_line[i] != '\n')
 		i++;
-	str = (char *)malloc(sizeof(char) * (i + 2));
+	if (prev_line[i] != '\n')
+		str = (char *)malloc(sizeof(char) * (i + 1));
+	else
+		str = (char *)malloc(sizeof(char) * (i + 2));
 	if (!str)
 		return (NULL);
 	i = 0;
