@@ -29,5 +29,6 @@ char	*ft_strjoin(char *left_str, char *buff);
 size_t	ft_strlen(char *s);
 char	*ft_get_line(char *left_str);
 char	*ft_new_left_str(char *left_str);
+char	*ft_free(char	*str);
 
 #endif

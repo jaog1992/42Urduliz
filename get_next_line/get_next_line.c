@@ -42,8 +42,7 @@ char	*ft_read_till_newline_char(int fd, char *prev_line)
 		if (read_bytes == -1)
 		{
 			free(buff);
-			free(prev_line);
-			return (NULL);
+			return (ft_free(prev_line));
 		}
 		buff[read_bytes] = '\0';
 		prev_line = ft_strjoin(prev_line, buff);
@@ -121,13 +120,10 @@ char	*ft_save_prev_line(char *prev_line)
 	while (prev_line[i] && prev_line[i] != '\n')
 		i++;
 	if (!prev_line[i])
-	{
-		free(prev_line);
-		return (NULL);
-	}
+		return (ft_free(prev_line));
 	str = (char *)malloc(sizeof(char) * (ft_strlen(prev_line) - i + 1));
 	if (!str)
-		return (NULL);
+		return (ft_free(prev_line));
 	i++;
 	j = 0;
 	while (prev_line[i])
@@ -151,7 +147,7 @@ char	*ft_save_prev_line(char *prev_line)
 char	*get_next_line(int fd)
 {
 	char		*next_line;
-	static char	*prev_line;
+	static char	*prev_line = NULL;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
