@@ -6,7 +6,7 @@
 /*   By: jde-orma <jde-orma@42urduliz.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 20:21:33 by jde-orma          #+#    #+#             */
-/*   Updated: 2023/02/15 20:21:33 by jde-orma         ###   ########.fr       */
+/*   Updated: 2023/03/12 09:19:00 by jde-orma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	*ft_read_till_newline_char(int fd, char *prev_line)
 
 /* ************************************************************************** */
 /*                                                                            */
-/* char	*ft_get_new_line(char *prev_line)                                     */
+/* char	*ft_get_new_line(char *prev_line, int i)                              */
 /*                                                                            */
 /* Searches for the newline character on the previously saved string,         */
 /* allocates enough memory to hold the line, copies the line to the new       */
@@ -65,20 +65,17 @@ char	*ft_read_till_newline_char(int fd, char *prev_line)
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_get_new_line(char *prev_line)
+char	*ft_get_new_line(char *prev_line, int i)
 {
-	int		i;
 	char	*str;
 
-	i = 0;
 	if (!prev_line[i])
 		return (NULL);
 	while (prev_line[i] && prev_line[i] != '\n')
 		i++;
-	if (prev_line[i] != '\n')
-		str = (char *)malloc(sizeof(char) * (i + 1));
-	else
-		str = (char *)malloc(sizeof(char) * (i + 2));
+	if (prev_line[i] == '\n')
+		i++;
+	str = (char *)malloc(sizeof(char) * (i + 1));
 	if (!str)
 		return (NULL);
 	i = 0;
@@ -154,16 +151,10 @@ char	*get_next_line(int fd)
 	prev_line = ft_read_till_newline_char(fd, prev_line);
 	if (!prev_line)
 		return (ft_free(prev_line));
-	next_line = ft_get_new_line(prev_line);
+	next_line = ft_get_new_line(prev_line, 0);
 	prev_line = ft_save_prev_line(prev_line);
 	return (next_line);
 }
-
-/*
-Manu
-		1 test_gnl(fd, "\n");
-		2  test_gnl(fd, NULL);
-*/
 
 //int	main(int argc, char **argv)
 //{
