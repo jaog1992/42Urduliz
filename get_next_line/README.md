@@ -27,6 +27,7 @@ After finishing this project, you will be familiar with:
 - [x] BUFFER_SIZE optimization
 - [x] Offset
 - [x] Static variables
+- [x] malloc protection | free
 
 
 ## 🛠️ Usage
