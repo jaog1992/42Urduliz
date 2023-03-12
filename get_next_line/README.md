@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-	<b><i>How can we read a new line from a File descriptor?</i></b><br>
+	<b><i>How can we read a new line from a text file?</i></b><br>
 
 <h3 align="center">
 	<a href="#%EF%B8%8F-about">About</a>
@@ -53,6 +53,9 @@ get_next_line.c get_next_line_utils.c -D BUFFER_SIZE=<size>
 ```
 
 ## 📋 Testing
+
+- [x] Francinette 100% 
+- [] Francinette --strict NULL_CHECK.KO
 
 You can uncomment and modify the main function on the get_next_line.c file.
 The text files included on the "tests" directory are just examples, and are also to be modified.
