@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "ft_printf.h"
 
 int	ft_nbrlen(int n)
@@ -30,10 +29,37 @@ int	ft_nbrlen(int n)
 	return (len);
 }
 
+char	*ft_itoa(int n)
+{
+	char	*ptr;
+	long	num;
+	size_t	len;
+
+	len = ft_nbrlen(n);
+	num = n;
+	ptr = (char *)malloc(sizeof(char) * (len + 1));
+	if (!ptr)
+		return (NULL);
+	ptr[len--] = '\0';
+	if (num < 0)
+	{
+		ptr[0] = '-';
+		num = -num;
+	}
+	if (num == 0)
+		ptr[0] = '0';
+	while (num > 0)
+	{
+		ptr[len--] = (num % 10) + '0';
+		num /= 10;
+	}
+	return (ptr);
+}
+
 char	*ft_uitoa(unsigned int n)
 {
-	char    *ptr;
-	int     len;
+	char	*ptr;
+	int		len;
 
 	len = ft_nbrlen(n);
 	ptr = (char *)malloc(sizeof(char) * (len + 1));
@@ -56,11 +82,11 @@ int	ft_print_unsigned(unsigned int n)
 
 	len = 0;
 	if (n == 0)
-		len += ft_putchar_fd('0', 1);
+		len += ft_printchararacter('0', 1);
 	else
 	{
 		ptr = ft_uitoa(n);
-		len += ft_putstr_fd(ptr);
+		len += ft_printstring(ptr, 1);
 		free(ptr);
 	}
 	return (len);

@@ -10,8 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "printf.h"
+
+int	ft_printchararacter(char c, int fd)
+{
+	write(fd, &c, 1);
+	return (1);
+}
+
+int	ft_printstring(char *s, int fd)
+{
+	if (!s)
+		return (0);
+	write(fd, s, ft_strlen(s));
+	return (ft_strlen(s));
+}
 
 int	ft_todecimal(int n)
 {
@@ -20,7 +33,7 @@ int	ft_todecimal(int n)
 
 	len = 0;
 	num = ft_itoa(n);
-	len = ft_putstr_fd(num, 1);
+	len = ft_printstring(num, 1);
 	free(num);
 	return (len);
 }
