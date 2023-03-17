@@ -21,15 +21,15 @@
 
 Project  | Grade
 :--- | :---
-CURSUS  | Level 1
+CURSUS  | Level 1.42%
 ******  | ******
 libft  | 100% (No bonus)
-get_next_line  | ongoing
+get_next_line  | 100% (No bonus)
 printf  | ongoing
 
 Project  | Grade
 |:--- | :---
-Piscine  | Level 6.65
+Piscine  | Level 6.65%
 
 ## 🛠️ Usage
 
