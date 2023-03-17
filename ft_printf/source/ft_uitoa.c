@@ -1,39 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
+/*   ft_uitoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jde-orma <jde-orma@42urduliz.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/25 16:16:09 by jde-orma          #+#    #+#             */
-/*   Updated: 2023/02/25 16:16:09 by jde-orma         ###   ########.fr       */
+/*   Created: 2023/02/25 16:33:21 by jde-orma          #+#    #+#             */
+/*   Updated: 2023/02/25 16:33:21 by jde-orma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_printchararacter(char c, int fd)
+char	*ft_uitoa(unsigned int n)
 {
-	write(fd, &c, 1);
-	return (1);
-}
-
-int	ft_printstring(char *s, int fd)
-{
-	if (!s)
-		return (0);
-	write(fd, s, ft_strlen(s));
-	return (ft_strlen(s));
-}
-
-int	ft_todecimal(int n)
-{
+	char	*ptr;
 	int		len;
-	char	*num;
 
-	len = 0;
-	num = ft_itoa(n);
-	len = ft_printstring(num, 1);
-	free(num);
-	return (len);
+	len = ft_nbrlen(n);
+	ptr = (char *)malloc(sizeof(char) * (len + 1));
+	if (!ptr)
+		return (NULL);
+	ptr[len] = '\0';
+	while (n != 0)
+	{
+		ptr[len - 1] = n % 10 + '0';
+		n /= 10;
+		len--;
+	}
+	return (ptr);
 }

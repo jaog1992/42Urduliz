@@ -6,7 +6,7 @@
 /*   By: jde-orma <jde-orma@42urduliz.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 08:09:07 by jde-orma          #+#    #+#             */
-/*   Updated: 2023/02/04 22:56:36 by jde-orma         ###   ########.fr       */
+/*   Updated: 2023/03/17 11:28:06 by jde-orma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,8 @@
 char	*ft_strchr(const char *s, int c)
 {
 	int	i;
-	int	len;
 
 	i = 0;
-	len = ft_strlen(s);
 	while (s[i] != '\0')
 	{
 		if (*(char *)(s + i) == (char)c)

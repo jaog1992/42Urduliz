@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
-#include<unistd.h>
+#include "ft_printf.h"
+#include "libft.h"
 
 int	ft_var_type(va_list str, const char format)
 {
@@ -21,19 +21,19 @@ int	ft_var_type(va_list str, const char format)
 	while (format)
 	{
 		if (format == 'c')
-			len += ft_printchararacter(va_arg(str, int), 1);
+			len += ft_putchar_fd(va_arg(str, int), 1);
 		if (format == 's')
-			len += ft_printstring(va_arg(str, char *), 1);
+			len += ft_putstr_fd(va_arg(str, char *), 1);
 		if (format == 'p')
-			len += ft_print_hexa(va_arg(str, unsigned long long), format);
+			len += ft_putptr_fd(va_arg(str, unsigned long long), 1, format);
 		if (format == 'd' || format == 'i')
-			len += ft_todecimal(va_arg(str, int));
+			len += ft_putnbr_fd(va_arg(str, int), 1);
 		if (format == 'u')
-			len += ft_print_unsigned(va_arg(str, unsigned int));
+			len += ft_putuint_fd(va_arg(str, unsigned int), 1);
 		if (format == 'x' || format == 'X')
-			len += ft_print_hexa(va_arg(str, int), format);
+			len += ft_putptr_fd(va_arg(str, unsigned long long), 1, format);
 		if (format == '%')
-			len += ft_printchararacter('%', 1);
+			len += ft_putchar_fd('%', 1);
 	}
 	return (len);
 }
@@ -42,19 +42,19 @@ int	ft_printf(char const *str, ...)
 {
 	size_t	i;
 	size_t	len;
-	va_list	ap;
+	va_list	args;
 
 	i = 0;
 	len = 0;
-	va_start(ap, str);
+	va_start(args, str);
 	while (str[i])
 	{
 		if (str[i] == '%')
-			len += ft_var_type(ap, str[i + 1]);
+			len += ft_var_type(args, str[i + 1]);
 		else
-			write(1, str[i], 1);
+			len += ft_putchar_fd(str[i], 1);
 		i++;
 	}
-	va_end(ap);
+	va_end(args);
 	return (len);
 }

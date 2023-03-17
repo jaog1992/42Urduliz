@@ -12,10 +12,11 @@
 
 #include <unistd.h>
 #include "libft.h"
-/*The return is empty as this function should return nothing*/
-void	ft_putstr_fd(char *s, int fd)
+
+int	ft_putstr_fd(char *s, int fd)
 {
 	if (!s)
-		return ;
+		return (0);
 	write(fd, s, ft_strlen(s));
+	return (ft_strlen(s));
 }

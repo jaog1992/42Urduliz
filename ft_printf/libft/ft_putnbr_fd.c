@@ -13,17 +13,14 @@
 #include <unistd.h>
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+int	ft_putnbr_fd(int n, int fd)
 {
-	int long	i;
+	int		len;
+	char	*num;
 
-	i = n;
-	if (i < 0)
-	{
-		write(fd, "-", 1);
-		i *= -1;
-	}
-	if (i > 9)
-		ft_putnbr_fd(i / 10, fd);
-	ft_putchar_fd(i % 10 + '0', fd);
+	len = 0;
+	num = ft_itoa(n);
+	len = ft_putstr_fd(num, fd);
+	free(num);
+	return (len);
 }

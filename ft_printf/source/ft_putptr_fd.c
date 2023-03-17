@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft.h"
 
 int	ft_hex_len(unsigned	long long ptr)
 {
@@ -25,32 +26,34 @@ int	ft_hex_len(unsigned	long long ptr)
 	return (len);
 }
 
-void	ft_put_hex(unsigned long long ptr, const char format)
+void	ft_puthex_fd(unsigned long long ptr, int fd, const char format)
 {
 	if (ptr >= 16)
 	{
-		ft_put_hex(ptr / 16, format);
-		ft_put_hex(ptr % 16, format);
+		ft_puthex_fd(ptr / 16, fd, format);
+		ft_puthex_fd(ptr % 16, fd, format);
 	}
 	else
 	{
 		if (ptr <= 9)
-			write(1, (ptr + '0'), 1);
+			ft_putchar_fd((ptr + '0'), fd);
 		else
 		{
 			if (format == 'X')
-				write(1, (ptr - 10 + 'A'), 1);
+				ft_putchar_fd((ptr - 10 + 'A'), fd);
 			else
-				write(1, (ptr - 10 + 'a'), 1);
+				ft_putchar_fd((ptr - 10 + 'a'), fd);
 		}
 	}
 }
 
-int	ft_print_hexadecimal(unsigned long long ptr, const char format)
+int	ft_putptr_fd(unsigned long long ptr, int fd, const char format)
 {
-	if (ptr == 0)
-		return (write(1, "0", 1));
+	if (ptr == 0 && format == 'p')
+		return (ft_putstr_fd("(null)", fd));
+	else if (ptr == 0 && format != 'p')
+		return (ft_putchar_fd('0', fd));
 	else
-		ft_put_hex(ptr, format);
+		ft_puthex_fd(ptr, fd, format);
 	return (ft_hex_len(ptr));
 }
