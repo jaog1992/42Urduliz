@@ -14,11 +14,14 @@
 
 int	ft_putstr_fd(char *s, int fd)
 {
+	int	i;
+
+	i = 0;
 	if (!s)
-	{
-		write(fd, "(null)", 6);
-		return (6);
-	}
-	write(fd, s, ft_strlen(s));
-	return (ft_strlen(s));
+		return (write(fd, "(null)", 6));
+	i = write(fd, s, ft_strlen(s));
+	if (i == -1)
+		return (i);
+	else
+		return (ft_strlen(s));
 }

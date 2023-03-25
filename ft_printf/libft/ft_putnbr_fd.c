@@ -19,6 +19,8 @@ int	ft_putnbr_fd(int n, int fd)
 
 	len = 0;
 	num = ft_itoa(n);
+	if (!num)
+		return (-1);
 	len = ft_putstr_fd(num, fd);
 	free(num);
 	return (len);
