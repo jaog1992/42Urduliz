@@ -24,6 +24,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_puthex_fd(uintptr_t ptr, const char format, int fd, int flag)
 {
 	int	i;
@@ -32,7 +34,11 @@ int	ft_puthex_fd(uintptr_t ptr, const char format, int fd, int flag)
 	if (format == 'X')
 	{
 		if (ptr >= 16)
+		{
 			i += ft_puthex_fd(ptr / 16, format, fd, 0);
+			if (i == -1)
+				return (-1);
+		}
 		if (ft_putchar_fd("0123456789ABCDEF"[ptr % 16], fd) != -1)
 			i++;
 		else
@@ -48,7 +54,11 @@ int	ft_puthex_fd(uintptr_t ptr, const char format, int fd, int flag)
 				return (-1);
 		}
 		if (ptr >= 16)
-			i += ft_puthex_fd(ptr / 16, format, fd, 1);
+		{
+			i += ft_puthex_fd(ptr / 16, format, fd, 0);
+			if (i == -1)
+				return (-1);
+		}
 		if (ft_putchar_fd("0123456789abcdef"[ptr % 16], fd) != -1)
 			i++;
 		else

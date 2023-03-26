@@ -23,7 +23,7 @@ int	ft_var_type(va_list str, const char format)
 	else if (format == 's')
 		flag += ft_putstr_fd(va_arg(str, char *), 1);
 	else if (format == 'p')
-		flag += ft_puthex_fd(va_arg(str, size_t), format, 1, 0);
+		flag += ft_putptr_fd(va_arg(str, uintptr_t), format, 1, 0);
 	else if (format == 'd' || format == 'i')
 		flag += ft_putnbr_fd(va_arg(str, int), 1);
 	else if (format == 'u')

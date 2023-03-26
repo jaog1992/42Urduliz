@@ -55,6 +55,7 @@ int		ft_putendl_fd(char *s, int fd);
 int		ft_putnbr_fd(int n, int fd);
 int		ft_putuint_fd(unsigned int n, int fd);
 int		ft_puthex_fd(uintptr_t ptr, const char format, int fd, int flag);
+int		ft_putptr_fd(uintptr_t ptr, const char format, int fd, int flag);
 char	*ft_strncpy(char *dst, const char *src, size_t len);
 int		ft_nbrlen(int c);
 

@@ -22,11 +22,11 @@ int	ft_putuint_fd(unsigned int n, int fd)
 	if (n >= 10)
 	{
 		i += ft_putuint_fd(n / 10, fd);
+		if (i == -1)
+			return (-1);
 	}
-	flag = ft_putchar_fd(n % 10 + '0', 1);
-	if (flag == -1)
+	i += ft_putchar_fd(n % 10 + '0', 1);
+	if (i == -1)
 		return (-1);
-	else
-		i++;
 	return (i);
 }
