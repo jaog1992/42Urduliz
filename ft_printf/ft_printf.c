@@ -28,26 +28,20 @@ int	ft_var_type(va_list str, const char format)
 		flag += ft_putnbr_fd(va_arg(str, int), 1);
 	else if (format == 'u')
 		flag += ft_putuint_fd(va_arg(str, unsigned int), 1);
-	else if (format == 'x' || format == 'X')
-		flag += ft_puthex_fd(va_arg(str, unsigned int), format, 1, 0);
+	else if (format == 'x')
+		flag += ft_puthex_x_fd(va_arg(str, unsigned int), format, 1);
+	else if (format == 'X')
+		flag += ft_puthex_ux_fd(va_arg(str, unsigned int), format, 1);
 	else if (format == '%')
 		flag += ft_putchar_fd('%', 1);
 	return (flag);
 }
 
-int	ft_printf(char const *str, ...)
+static int	ft_printf_helper(va_list args, char const *str, int i, int flag)
 {
-	int		i;
-	int		len;
-	int		flag;
-	va_list	args;
+	int	len;
 
-	if (!str)
-		return (0);
-	i = 0;
 	len = 0;
-	flag = 0;
-	va_start(args, str);
 	while (str[i])
 	{
 		if (str[i] != '%')
@@ -63,6 +57,19 @@ int	ft_printf(char const *str, ...)
 			len += flag;
 		i++;
 	}
+	return (len);
+}
+
+int	ft_printf(char const *str, ...)
+{
+	int		len;
+	va_list	args;
+
+	if (!str)
+		return (0);
+	len = 0;
+	va_start(args, str);
+	len += ft_printf_helper(args, str, 0, 0);
 	va_end(args);
 	return (len);
 }

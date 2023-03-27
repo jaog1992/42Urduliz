@@ -6,7 +6,7 @@
 /*   By: jde-orma <jde-orma@42urduliz.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 06:55:18 by jde-orma          #+#    #+#             */
-/*   Updated: 2023/03/24 18:47:50 by jde-orma         ###   ########.fr       */
+/*   Updated: 2023/03/26 14:43:08 by jde-orma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ int		ft_putstr_fd(char *s, int fd);
 int		ft_putendl_fd(char *s, int fd);
 int		ft_putnbr_fd(int n, int fd);
 int		ft_putuint_fd(unsigned int n, int fd);
-int		ft_puthex_fd(uintptr_t ptr, const char format, int fd, int flag);
+int		ft_puthex_x_fd(uintptr_t ptr, const char format, int fd);
+int		ft_puthex_ux_fd(uintptr_t ptr, const char format, int fd);
 int		ft_putptr_fd(uintptr_t ptr, const char format, int fd, int flag);
 char	*ft_strncpy(char *dst, const char *src, size_t len);
 int		ft_nbrlen(int c);
