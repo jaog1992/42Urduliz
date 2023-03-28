@@ -15,7 +15,7 @@
 
 ---
 
-## 💡 About the project
+## 💡 About
 
 > _The aim of this repository is to serve as the online directory of the my ongoing 42Urduliz cursus projects_
 
@@ -24,8 +24,12 @@ Project  | Grade
 CURSUS  | Level 1.42%
 ******  | ******
 libft  | 100% (No bonus)
+******  | ******
 get_next_line  | 100% (No bonus)
 printf  | ongoing
+Born2beroot | ongoing
+******  | ******
+push_swap | ongoing
 
 Project  | Grade
 |:--- | :---
