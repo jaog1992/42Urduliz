@@ -21,12 +21,12 @@
 
 Project  | Grade
 :--- | :---
-CURSUS  | Level 1.42%
+CURSUS  | Level 1.83%
 ******  | ******
 libft  | 100% (No bonus)
 ******  | ******
 get_next_line  | 100% (No bonus)
-printf  | ongoing
+printf  | 100% (No bonus)
 Born2beroot | ongoing
 ******  | ******
 push_swap | ongoing
