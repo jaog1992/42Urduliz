@@ -1,0 +1,186 @@
+<h1 align="center">
+	📖 Born2beroot
+</h1>
+
+<p align="center">
+	<b><i>Notas personales para una corrección ágil</i></b><br>
+
+# General Instructions
+
+# Mandatory part
+Para cambiar el hostname hay que modificar el archivo ***/etc/hostname*** como root y luego resetear el servidor:
+
+```sudo nano /etc/hostname```
+
+# Project Overview
+## Qué es una máquina virtual
+
+Es un software basado en Hipervisor que permite que puedas ejecutar un ordenador/servidor, sin dependencias físicas, con un Sistema operativo, recursos y configuraciónes independientes al host. Permite ser copiado de un ordenador a otro, por lo que es muy útil de cara a compartir un entorno local común en equipos de trabajo.
+
+## Por qué has escogido Debian
+
+Porque quería aprender a configurar una distribución de GNU/Linux y esta se caracteriza por su filosofía de software libre y robustez (Ubuntu se basa en Debian). Esto hace factible que vuelva a configurar MV-s de esta distribución a futuro.
+
+## Principales diferencias entre Centos y Debian
+
+CentOS (Community Enterprise Operating System) es un sistema operativo de código abierto basado en en RHEL (Red Hat Enterprise Linux)(tienen compatibilidad binaria). Aunque se desarrolla en colaboración con una comunidad de voluntarios es la versión empresarial de RHEL, lo cual supone un modelo de versionado conservador = + soporte y estabilidad. Usan YUM y DNF com gestores de paquetes.
+
+Debian es una distribución de Linux independiente que se desarrolla y mantiene por una comunidad de usuarios. Se rige por los principios del Software libre (distribución libre y abierta) y se enfoca en la estabilidad, seguridad y libertad del software, ofertando una amplia selección de paquetes. Mientras que CentOS es conservador Debian se usa un modelo de lanzamiento "rolling release", actualizándose de forma continua. Los usuario pueden elegir entre ramas "stable", "testing" y "unstable"en función de sus necesidades de estabilidad/disponibilidad del Software. Usa el gestor de paquetes APT (Advanced Package Tool), con herramientas como apt-get o Aptitude (un apt de alto nivel)
+
+## Diferencias entre apt y aptitude
+
+Ambos son gestores de paquetes, pero Aptitude es una version más versatil de apt. APT es un administrador de paquetes de nivel inferior y aptitude es un administrador de paquetes de alto nivel. Otra gran diferencia es la funcionalidad que ofrecen ambas herramientas. Aptitude ofrece una mejor funcionalidad en comparación con apt-get. Ambos son capaces de de proporcionar los medios necesarios para realizar la gestión de paquetes. Sin embargo, si se busca un enfoque con mas caracteristicas, debería ser, Aptitude.
+
+Otros gestores de paquetes usados en otras distribuciones de linux pueden ser:
+
+| | |
+|--|--|
+|yum|OracleLinux / RedHat / Fedora |
+|Pacman| ArchLinux |
+| Entropy | Sabayon Linux |
+| ZYpp | OpenSUSE/SUSE Linux Enterpruse |
+|DNF / Dandified YUM | Fedora 22 |
+
+## Qué es APPArmor
+
+Es un módulo de seguridad basado en perfiles del kernel Linux.
+
+Permite al administrador del sistema restringir los permisos de accesos de los programas y procesos de un sistema, de forma que se puedan prevenir y mitigar riesgos de seguridad.
+
+Los perfiles especifican qué acciones pueden realizar las aplicaciones y a qué recursos pueden acceder, como archivos, directorios, sockets de red y otros recursos del sistema, de forma análoga a los permisos de los grupos de usuarios.
+
+Otro perfil de seguridad similar es SELinux (Security-Enhanced Linux). Ambos sistemas tienen como objetivo mejorar la seguridad del sistema operativo, pero utilizan enfoques y modelos de implementación diferentes.
+
+## Que es LVM!!!!
+
+Es un gestor de volúmenes lógicos. Proporciona un método para asignar espacio en dispositivos de almacenamiento masivo, que es más flexible que los esquemas de particionado convencionales para almacenar volúmenes.
+
+# Simple Setup
+# User
+
+Para la creación de un nuevo usuario podemos usar ```sudo adduser [nombre_usuario]``` (más restrictivo) o ```sudo useradd  [nombre_usuario]``` (más user friendly). 
+
+Para añadir una contraseña a ese usuario ```sudo passwd [nombre_usuario]```.
+
+Para crearlo y añadirlo directamente a un grupo podemos hacer:
+
+```sudo useradd [nombre_usuario] -m -g -G [nombre_grupo]```
+
+| Opción | Explicación |
+|--|--|
+|**-m**| Para crearle un directorio de usuario en /home |
+|**-g**| No crea un grupo que tenga el mismo nombre que el usuario |
+|**-G**| Para añadirle a un grupo secundario |
+
+Para ver si el usuario **jde-orma** está en los grupos *user42* y *sudo* hacemos:
+
+```grep -E 'user42|sudo' /etc/group```
+
+| Opción | Explicación |
+|--|--|
+|**-E**| Admite patrones regex de busqueda |
+
+Para agregar un grupo a un usuario en cambio:
+
+```sudo addgroup  [nombre_usuario] [nombre_grupo]```.
+
+Para el chequeo de la **POLITICA DE CONTRASEÑA** segura se ha de comprobar:
+
+| Opción | Explicación |
+|--|--|
+|```nano /etc/login.defs```| Donde se cambia el tiempo de expiración de la contraseña |
+|```nano /etc/pam.d/common-password```| Donde añadimos las políticas de los caracteres de las contraseñas |
+  
+
+# Hostname & partitions
+```lsblk```
+
+
+# Sudo
+Para ver la configuración del sudo:
+
+```sudo visudo```
+
+o
+
+```sudo nano /etc/sudoers```
+
+El *requiretty* puede ser un poco confuso si no se estudia bien. El requerimiento de TTY (Teletypewriter) sirve para comprobar si un comando de sudo se está ejecutando desde una terminal por alguien frente a si se ejecuta automáticamente dentro de un script desde un servicio (con Crontab, ejecutándolo desde otro script...)
+
+Otra nota importante es que mientras que la terminal de una MV devuelve ```/dev/ttyN``` cuando se ejecuta este comando desde un terminal ssh devuelve ```/dev/pts/N```(donde N es el número asociado a la terminal) por ser un pseudo-tty (una pseudo terminal).
+
+Ejecutando ```who``` la terminal muestra el listado de terminales conectadas a la MV. En este ejemplo se ve que hay 2 terminales de ssh y 1 en la propia máquina:
+
+> jde-orma tty1         2023-07-09 10:07
+
+> jde-orma pts/1        2023-07-10 12:47 (192.168.56.1)
+
+> jde-orma pts/2        2023-07-10 12:48 (192.168.56.1)
+
+
+Para chequear que el log de sudo está guardando los comandos correctamente se puede abrir un cliente ssh que ejecute un tail en el archivo objetivo (-f para que se actualice):
+
+```tail -f /var/log/sudo/sudo.log```
+
+| Opción | Explicación |
+|--|--|
+|```-f```| Para que actualice el EOF |
+
+Como alternativa se puede hacer
+```getent group user42``` y ```getent group sudo```.
+
+# UFW
+Para ver los puertos habilitados de ufw: 
+
+``` sudo ufw status ``` o ```sudo nano /etc/ufw/user.rules```
+
+# SSH
+Para ver el puerto configurado para ssh
+
+```grep -E 'Port |PermitR' /etc/ssh/sshd_config```
+
+# Script Monitoring
+
+## Crontab
+
+Para acceder al archivo de configuración de Cron usamos:
+
+```sudo crontab -u root -e```
+
+| Opción | Explicación |
+|--|--|
+|```-u```| Usuario que va a editar el archivo |
+|```-e```| Abre el archivo de configuración de Cron con el editor por defecto definido en las variables del sistema |
+
+
+o en su defecto se puede ver abrir directamente el archivo en ```/var/spool/cron/crontabs```, pero no se recomienda, ya que solo se puede abrir como root.
+
+## Script
+Guardamos el script en el usuario ***home/root***.
+
+Usamos ```uname -srvmo``` para conseguir la información que queremos, ya que ```-a``` nos devuelve tambien el nombre de la máquina.
+
+Usamos ```free``` para la memoria RAM usada y mostra los datos recogiendo la línea Mem con ```grep``` y los valores deseados con ```awk```. Mientras que -h nos da los valores en bytes -k nos los valores en bits.
+
+Usamos ```df``` para ver el espacio en disco.
+
+Usamos ```top -bn1``` para mostrar los procesos de linux y su porcentaje de uso. si no se indica el -b (batch) -n (number) -1 (1 iteración) el sistema nos mostrará sus datos en tiempo real, por lo que así solo muestra una iteración o instantanea del sistema.
+
+Usamos ```who``` que muestra quien está logueado con ```-b``` para que muestre el timestamp del último boot.
+
+Con ```lsblk``` mostramos la información de las particiones físicas y los volumenes lógicos. En caso de que al hacer *grep lvm* no se devuelvan líneas nuevas (*wc -l*) diremos que NO hay LVMs configurados, pero en caso contrario diremos que sí
+
+# Comandos utiles
+
+Parece que cada servicio que se instala en GNU/Linux crea una carpeta en **/etc** para almacenar sus archivos de configuración.
+
+Si usas la opción de grep -E puedes hacer una especie de AND poniendo el valor de busqueda entre comillas simples, de forma que puedes buscar los archivos de todos los servicios que te interesen así:
+
+
+```ls -l /etc | grep -E 'cron|ssh|ufw|php' ```
+
+# BIBLIOGRAFIA
+* [INFO SOBRE DIRECTORIOS DE LINUX](https://computernewage.com/2015/06/14/el-arbol-de-directorios-de-linux-al-detalle-que-contiene-cada-carpeta/#estructura-directorios)
+* [INFO SOBRE COMO SE MANTIENE EL KERNEL DE LINUX](https://superuser.com/questions/1003057/what-is-the-exact-different-between-linux-kernel-release-and-version#:~:text=In%20Linux%20based%20operating%20system,different%20between%20Release%20and%20Version%20%3F&text=%22Release%22%2C%20it%20probably%20means,from%20source%2C%20may%20be%20unstable.) (```uname -a```)
+  
+* [INFO SOBRE GESTORES PAQUETES DE LINUX](https://www.profesionalreview.com/2016/09/11/gestor-de-paquetes-en-linux/#:~:text=Entropy%20es%20comparable%20a%20Apt,Entropy%20tambi%C3%A9n%20incluye%20accesos%20directos.)
