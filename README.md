@@ -29,6 +29,7 @@ get_next_line  | 100% (No bonus)
 printf  | 100% (No bonus)
 Born2beroot | ongoing
 ******  | ******
+so_long | ongoing
 push_swap | ongoing
 
 Project  | Grade
