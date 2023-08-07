@@ -8,14 +8,24 @@
 # General Instructions
 
 # Mandatory part
-Para cambiar el hostname hay que modificar el archivo ***/etc/hostname*** como root y luego resetear el servidor:
+Para comprobar el hostname se puede hacer con el comando ```hostnamectl```, y puede ser cambiado con ```hostnamectl set-hostname```.
+
+Tambien puede hacerse modificando el archivo ***/etc/hostname*** como root y luego resetear el servidor:
 
 ```sudo nano /etc/hostname```
+
+# Que shell de Unix estoy usando?
+
+Podemos usar el comando **ps** con la opción **-p {pid}**. Este comando selecciona los procesos cuyo ID aparece en el pid introducido.
+
+```ps -p $$```
+
+ el símbolo del **$** devuelve el PID (process identification number) del proceso actual, y como en este caso es la s and the current process is your shell. So running a ps on that number displays a process status listing of your shell. In that listing, you will find the name of your shell (look for CMD column).
 
 # Project Overview
 ## Qué es una máquina virtual
 
-Es un software basado en Hipervisor que permite que puedas ejecutar un ordenador/servidor, sin dependencias físicas, con un Sistema operativo, recursos y configuraciónes independientes al host. Permite ser copiado de un ordenador a otro, por lo que es muy útil de cara a compartir un entorno local común en equipos de trabajo.
+Es un software basado en Hipervisor que permite que puedas ejecutar un ordenador/servidor, sin dependencias físicas, con un Sistema operativo, Kernel, recursos y configuraciónes independientes al host. Permite ser copiado de un ordenador a otro, por lo que es muy útil de cara a compartir un entorno local común en equipos de trabajo.
 
 ## Por qué has escogido Debian
 
@@ -23,9 +33,9 @@ Porque quería aprender a configurar una distribución de GNU/Linux y esta se ca
 
 ## Principales diferencias entre Centos y Debian
 
-CentOS (Community Enterprise Operating System) es un sistema operativo de código abierto basado en en RHEL (Red Hat Enterprise Linux)(tienen compatibilidad binaria). Aunque se desarrolla en colaboración con una comunidad de voluntarios es la versión empresarial de RHEL, lo cual supone un modelo de versionado conservador = + soporte y estabilidad. Usan YUM y DNF com gestores de paquetes.
+CentOS (Community Enterprise Operating System) es un sistema operativo de código abierto basado en en RHEL (Red Hat Enterprise Linux; Tienen compatibilidad binaria). Aunque se desarrolla en colaboración con una comunidad de voluntarios es la versión empresarial de RHEL, lo cual supone un modelo de versionado conservador = + soporte y estabilidad. Usan YUM y DNF com gestores de paquetes.
 
-Debian es una distribución de Linux independiente que se desarrolla y mantiene por una comunidad de usuarios. Se rige por los principios del Software libre (distribución libre y abierta) y se enfoca en la estabilidad, seguridad y libertad del software, ofertando una amplia selección de paquetes. Mientras que CentOS es conservador Debian se usa un modelo de lanzamiento "rolling release", actualizándose de forma continua. Los usuario pueden elegir entre ramas "stable", "testing" y "unstable"en función de sus necesidades de estabilidad/disponibilidad del Software. Usa el gestor de paquetes APT (Advanced Package Tool), con herramientas como apt-get o Aptitude (un apt de alto nivel)
+Debian es una distribución de Linux independiente que se desarrolla y mantiene por una comunidad de usuarios. Se rige por los principios del Software libre (distribución libre y abierta) y se enfoca en la estabilidad, seguridad y libertad del software, ofertando una amplia selección de paquetes. Mientras que CentOS pública versiones de forma conservadora Debian usa un modelo de lanzamiento "rolling release", actualizándose de forma continua. Los usuario pueden elegir entre ramas "stable", "testing" y "unstable"en función de sus necesidades de estabilidad/disponibilidad del Software. Usa el gestor de paquetes ```dpkg```, cuyo front-end es ```APT``` (Advanced Package Tool), con herramientas como ```apt-get``` o ```Aptitude``` (un apt de alto nivel)
 
 ## Diferencias entre apt y aptitude
 
@@ -49,11 +59,13 @@ Permite al administrador del sistema restringir los permisos de accesos de los p
 
 Los perfiles especifican qué acciones pueden realizar las aplicaciones y a qué recursos pueden acceder, como archivos, directorios, sockets de red y otros recursos del sistema, de forma análoga a los permisos de los grupos de usuarios.
 
+```sudo apparmor_status```
+
 Otro perfil de seguridad similar es SELinux (Security-Enhanced Linux). Ambos sistemas tienen como objetivo mejorar la seguridad del sistema operativo, pero utilizan enfoques y modelos de implementación diferentes.
 
-## Que es LVM!!!!
+## Que es LVM
 
-Es un gestor de volúmenes lógicos. Proporciona un método para asignar espacio en dispositivos de almacenamiento masivo, que es más flexible que los esquemas de particionado convencionales para almacenar volúmenes.
+Es un gestor de volúmenes lógicos. Proporciona un método para asignar espacio en dispositivos de almacenamiento masivo, que es más flexible que los esquemas de particionado convencionales para almacenar volúmenes, permitiendo aumentar el tamaño del disco incluso cuando no hay espacio de disco contiguo libre.
 
 # Simple Setup
 # User
@@ -134,6 +146,14 @@ Para ver los puertos habilitados de ufw:
 
 ``` sudo ufw status ``` o ```sudo nano /etc/ufw/user.rules```
 
+Para ver el estado del servicio/daemon ufw:
+
+```systemctl status ufw``` o ```sudo service ufw status```
+
+Para habilitar o deshabilitar puertos:
+
+```sudo ufw allow/deny 8080```
+
 # SSH
 Para ver el puerto configurado para ssh
 
@@ -178,6 +198,10 @@ Si usas la opción de grep -E puedes hacer una especie de AND poniendo el valor 
 
 
 ```ls -l /etc | grep -E 'cron|ssh|ufw|php' ```
+
+# Creación de la firma de la MV
+
+```sha1sum jde-orma42.vdi```
 
 # BIBLIOGRAFIA
 * [INFO SOBRE DIRECTORIOS DE LINUX](https://computernewage.com/2015/06/14/el-arbol-de-directorios-de-linux-al-detalle-que-contiene-cada-carpeta/#estructura-directorios)
