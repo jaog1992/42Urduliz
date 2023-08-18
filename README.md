@@ -27,10 +27,11 @@ libft  | 100% (No bonus)
 ******  | ******
 get_next_line  | 100% (No bonus)
 printf  | 100% (No bonus)
-Born2beroot | ongoing
+Born2beroot | Done! pending correction
 ******  | ******
 so_long | ongoing
 push_swap | ongoing
+minitalk | Done! pending correction
 
 Project  | Grade
 |:--- | :---
