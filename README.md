@@ -19,23 +19,23 @@
 
 > _The aim of this repository is to serve as the online directory of the my ongoing 42Urduliz cursus projects_
 
-Project  | Grade
-:--- | :---
-CURSUS  | Level 1.83%
-******  | ******
-libft  | 100% (No bonus)
-******  | ******
-get_next_line  | 100% (No bonus)
-printf  | 100% (No bonus)
-Born2beroot | Done! pending correction
-******  | ******
-so_long | ongoing
-push_swap | ongoing
-minitalk | Done! pending correction
+| Project  | Grade |
+| :--- | :--- |
+| CURSUS  | Level 1.83% |
+| ******  | ****** |
+| libft  | 100% |
+| ******  | ****** |
+| get_next_line  | 100% |
+| printf  | 100% |
+| Born2beroot | Done! Pending correction |
+| ******  | ****** |
+| so_long | ongoing |
+| push_swap | ongoing |
+| minitalk | Done! Pending correction |
 
-Project  | Grade
-|:--- | :---
-Piscine  | Level 6.65%
+| Project  | Grade |
+| :--- | :--- |
+| Piscine  | Level 6.65% |
 
 ## 🛠️ Usage
 
