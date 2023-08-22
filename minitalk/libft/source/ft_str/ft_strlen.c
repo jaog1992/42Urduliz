@@ -3,21 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jde-orma <jde-orma@42urduliz.com>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 13:13:00 by jde-orma          #+#    #+#             */
-/*   Updated: 2023/04/03 19:22:11 by jde-orma         ###   ########.fr       */
+/*   Updated: 2023/08/22 17:02:47 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-size_t	ft_strlen(const char *c)
+size_t	ft_strlen(const char *s)
 {
-	long unsigned int	a;
+	size_t	i;
 
-	a = 0;
-	while (c[a] != '\0')
-		a++;
-	return (a);
+	i = 0;
+	if (!s)
+		return (0);
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }
