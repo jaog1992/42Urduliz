@@ -10,14 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_pow(int base, int exponent)
+int	ft_pow(int base, int exponent)
 {
-    int result = 1;
-    
-    while (exponent > 0) 
-    {
-        result *= base;
-        exponent--;
-    }
-    return result;
+	int	result;
+
+	result = 1;
+	while (exponent > 0)
+	{
+		result *= base;
+		exponent--;
+	}
+	return (result);
 }

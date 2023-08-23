@@ -12,15 +12,14 @@
 
 #include "../../include/libft.h"
 
-int ft_strtol(char *c, int base)
+int	ft_strtol(char *c, int base)
 {
-    int i;
-    int num;
+	int	i;
+	int	num;
 
-    i = 0;
-    while (i < (int)ft_strlen(c))
-    {
-        num += ft_pow(base, (c[i] - 48));
-    }
-    return (num);
+	i = 0;
+	num = 0;
+	while (i < (int)ft_strlen(c))
+		num += ft_pow(base, (c[i] - 48));
+	return (num);
 }

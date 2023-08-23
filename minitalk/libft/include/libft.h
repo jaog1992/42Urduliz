@@ -32,7 +32,7 @@ int		ft_isascii(int c);
 int		ft_isprint(int c);
 
 //  FT_MATH
-int     ft_pow(int base, int exponent);
+int		ft_pow(int base, int exponent);
 
 //  FT_MEM
 void	ft_bzero(void *s, size_t n);
@@ -54,7 +54,7 @@ int		ft_puthex_x_fd(uintptr_t ptr, const char format, int fd);
 int		ft_puthex_ux_fd(uintptr_t ptr, const char format, int fd);
 int		ft_putptr_fd(uintptr_t ptr, const char format, int fd, int flag);
 int		ft_printf(char const *str, ...);
-int	    ft_print_error(char *s);
+int		ft_print_error(char *s);
 
 //  FT_STR
 size_t	ft_strlen(const char *s);
@@ -73,7 +73,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_strnstr(const char *big, const char *little, size_t len);
-int     ft_strtol(char *c, int base);
+int		ft_strtol(char *c, int base);
 char	*ft_get_next_line(int fd);
 char	*ft_gnlstrjoin(char *s1, char *s2);
 char	*ft_str(char *s1, char *s2, char *str);

@@ -10,11 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef MINITALK_H
+# define MINITALK_H
+
 # include <signal.h>
 # include "../libft/include/libft.h"
 
-typedef void (*CliSignalHandler)(int);
-typedef void (*SrvSignalHandler)(int, siginfo_t *, void *);
+typedef void	(*t_cli_handler)(int);
+typedef void	(*t_srv_handler)(int, siginfo_t *, void *);
 
 int	arg_error(int argc, char **argv)
 {
@@ -31,17 +34,19 @@ int	arg_error(int argc, char **argv)
 	return (0);
 }
 
-void config_signals(CliSignalHandler cli_handler, SrvSignalHandler srv_handler)
+void	config_signals(t_cli_handler cli_handler, t_srv_handler srv_handler)
 {
-    struct sigaction sa_modsignal;
+	struct sigaction	sa_modsignal;
 
-    sa_modsignal.sa_flags = SA_SIGINFO;
-    if (!srv_handler)
-        sa_modsignal.sa_handler = cli_handler;
-    if (!cli_handler)
-        sa_modsignal.sa_sigaction = srv_handler;
-    if (sigaction(SIGUSR1, &sa_modsignal, NULL) == -1)
-        ft_print_error("Failed to modify SIGUSR1's behavior");
-    if (sigaction(SIGUSR2, &sa_modsignal, NULL) == -1)
-        ft_print_error("Failed to modify SIGUSR2's behavior");
+	sa_modsignal.sa_flags = SA_SIGINFO;
+	if (!srv_handler)
+		sa_modsignal.sa_handler = cli_handler;
+	if (!cli_handler)
+		sa_modsignal.sa_sigaction = srv_handler;
+	if (sigaction(SIGUSR1, &sa_modsignal, NULL) == -1)
+		ft_print_error("Failed to modify SIGUSR1's behavior");
+	if (sigaction(SIGUSR2, &sa_modsignal, NULL) == -1)
+		ft_print_error("Failed to modify SIGUSR2's behavior");
 }
+
+#endif

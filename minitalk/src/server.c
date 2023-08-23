@@ -42,4 +42,3 @@ int	main(void)
 		config_signals(NULL, ft_handle_sigusr);
 	return (EXIT_SUCCESS);
 }
-
