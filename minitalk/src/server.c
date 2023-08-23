@@ -18,6 +18,7 @@ void	ft_handle_sigusr(int signum, siginfo_t *info, void *ucontent)
 	static unsigned char	c;
 
 	(void)ucontent;
+	(void)info;
 	if (i < 0)
 		i = 7;
 	if (signum == SIGUSR1)
@@ -27,12 +28,8 @@ void	ft_handle_sigusr(int signum, siginfo_t *info, void *ucontent)
 	{
 		ft_putchar_fd(c, STDOUT_FILENO);
 		c = 0;
-		if (kill(info->si_pid, SIGUSR2) == -1)
-			ft_print_error("Server failed to send SIGUSR2");
 		return ;
 	}
-	if (kill(info->si_pid, SIGUSR1) == -1)
-		ft_print_error("Failed to send SIGUSR1");
 }
 
 int	main(void)
