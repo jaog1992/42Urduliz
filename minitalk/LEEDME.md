@@ -9,7 +9,8 @@
 
 ## 💡 Parte obligatoria
 
-Este proyecto busca que el programador se familiarice con el uso de señales y su funcionamiento. Para ello limita el uso de señales a SIGUSR1 y SIGUSR2.
+Este proyecto busca que el programador se familiarice con el uso y manipulación de las señales en procesos. 
+Para ello se ha, de comunicar 2 procesos, cliente y servidor, usando las señales SIGUSR1 y SIGUSR2.
 
 Estas señales son configurables por el usuario y han de ser gestionadas con los comandos 
 * [signal](https://man7.org/linux/man-pages/man7/signal.7.html)
@@ -23,12 +24,24 @@ Estas señales son configurables por el usuario y han de ser gestionadas con los
 * [usleep](https://man7.org/linux/man-pages/man3/usleep.3.html)
 * [exit](https://man7.org/linux/man-pages/man3/exit.3.html)
 
-
 TIP: Repasa los [operadores de bit](https://learn.microsoft.com/en-us/cpp/c-language/c-bitwise-operators?view=msvc-170) para entender el código
 
 Evidencias a tener en cuenta:
-- Si solo usas signal corres el riesgo de que pierdas señales enviadas, ya que no se serializa/encola su envío y tendrás que utilizar un ack para chequear que ha llegado y un método de comprobación de integridad del mensajes, como un [bit de paridad](https://es.wikipedia.org/wiki/Bit_de_paridad)
+- Si solo usas ```signal``` corres el riesgo de que pierdas señales enviadas, ya que no se serializa/encola su envío y cualquier señal de segundo plano puede hacer que se pierda la señal.
+  Tendrás que configurar un ack para chequear que ha llegado y un método de comprobación de integridad del mensajes, como un [bit de paridad](https://es.wikipedia.org/wiki/Bit_de_paridad)
 - Cada proceso tiene asignadas su zonas de memoria independientes. No pueden compartirlas.
+
+Resultado de la parte mandatory:
+
+![minitalk mandatory](./Img/minitalk.gif "minitalk mandatory")
+
+## Parte bonus
+
+Para la parte bonus se pide que el servidor responda al cliente y que sepa interpretar mensajes unicode.
+
+En esta implementación el servidor responde con un SIGUSR2 en caso de recibirlo correctamente y el cliente representa un ✅ cada vez que recibe este ack.
+
+![minitalk bonus](./Img/minitalk_bonus.gif "minitalk bonus")
 
 # 📋 BIBLIOGRAFIA
 
