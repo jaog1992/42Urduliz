@@ -58,7 +58,7 @@ be valid.
 - [x] The map must be rectangular.
 - [x] The map must be closed/surrounded by walls. If it’s not, the program must return
 an error.
-- [ ] You have to check if there’s a valid path in the map.
+- [x] You have to check if there’s a valid path in the map.
 - [x] You must be able to parse any kind of map, as long as it respects the above rules.
 - [x] If any misconfiguration of any kind is encountered in the file, the program must
 exit in a clean way, and return "Error\n" followed by an explicit error message of
