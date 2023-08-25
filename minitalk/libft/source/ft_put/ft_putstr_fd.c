@@ -17,6 +17,8 @@ int	ft_putstr_fd(char *s, int fd)
 	int	i;
 
 	i = 0;
+	if (fd < 0)
+		return (EXIT_FAILURE);
 	if (!s)
 		return (write(fd, "(null)", 6));
 	i = write(fd, s, ft_strlen(s));

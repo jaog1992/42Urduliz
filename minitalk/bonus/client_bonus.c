@@ -51,11 +51,11 @@ int	main(int argc, char **argv)
 
 	if (arg_error(argc, argv) > 0)
 		return (EXIT_FAILURE);
-	str2 = (char *)malloc(sizeof(char) * ft_strlen(argv[2]));
+	str2 = (char *)malloc(sizeof(char) * ft_strlen(argv[2]) + 1);
 	if (!str2)
 		return (EXIT_FAILURE);
 	ft_printf("\nClient PID --> \033[0;92m%d\033[0;97m\n\n", getpid());
-	ft_memcpy(str2, argv[2], ft_strlen(argv[2]));
+	ft_memcpy(str2, argv[2], ft_strlen(argv[2]) + 1);
 	ft_printf("A \033[0;92m✔\033[0;97m for each correctly sent char\n\n");
 	ft_printf("\033[0;94m%s\033[0;97m\n", str2);
 	config_signals(sig_handler, NULL);
