@@ -71,6 +71,9 @@ LIBFT       =   $(addprefix $(LIBFT_DIR), $(LIBFT_FILE))
 
 # **************************************************************************** #
 
+# If the obj/ directory does not exit it creates it. If exist the Makefile continues
+$(shell mkdir -p $(OBJ_DIR))
+
 # Variable to control if the library has been built
 LIBFT_BUILT = no
 

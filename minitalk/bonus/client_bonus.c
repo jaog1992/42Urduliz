@@ -62,5 +62,7 @@ int	main(int argc, char **argv)
 	i += send_str(ft_atoi(argv[1]), argv[2]);
 	while (i < ft_strlen(argv[2]))
 		pause();
+	if (i == ft_strlen(argv[2]))
+		ft_printf("\n\n");
 	return (EXIT_SUCCESS);
 }
