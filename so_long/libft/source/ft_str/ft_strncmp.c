@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long_utils.c                                    :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jde-orma <jde-orma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jde-orma <jde-orma@42urduliz.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/29 06:55:06 by jde-orma          #+#    #+#             */
-/*   Updated: 2023/07/29 06:55:06 by jde-orma         ###   ########.fr       */
+/*   Created: 2022/12/01 08:07:16 by jde-orma          #+#    #+#             */
+/*   Updated: 2023/02/04 21:42:38 by jde-orma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../../include/libft.h"
 
-int	dbl_free_ptr(Mapa *mapa1, char **ptr)
+int	ft_strncmp(const char *s1, const char *s2, long unsigned int n)
 {
-	free(mapa1);
-	free(ptr);
-	return (1);
-}
-
-int	ft_strrepeatchr(char *s, char c, int len)
-{
-	int	i;
-	int	k;
+	size_t	i;
 
 	i = 0;
-	k = ft_strlen(s) - 1 - len;
-	while (i <= k)
+	while ((s1[i] != '\0' || s2[i] != '\0') && i < n)
 	{
-		if (s[i] != c)
-			return (1);
+		if (s1[i] != s2[i])
+			return (((unsigned char) s1[i] - (unsigned char) s2[i]));
 		i++;
 	}
 	return (0);

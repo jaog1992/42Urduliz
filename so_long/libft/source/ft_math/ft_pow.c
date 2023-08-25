@@ -1,36 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long_utils.c                                    :+:      :+:    :+:   */
+/*   ft_pow.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jde-orma <jde-orma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/29 06:55:06 by jde-orma          #+#    #+#             */
-/*   Updated: 2023/07/29 06:55:06 by jde-orma         ###   ########.fr       */
+/*   Created: 2023/08/18 13:36:51 by jde-orma          #+#    #+#             */
+/*   Updated: 2023/08/18 13:36:51 by jde-orma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
-
-int	dbl_free_ptr(Mapa *mapa1, char **ptr)
+int	ft_pow(int base, int exponent)
 {
-	free(mapa1);
-	free(ptr);
-	return (1);
-}
+	int	result;
 
-int	ft_strrepeatchr(char *s, char c, int len)
-{
-	int	i;
-	int	k;
-
-	i = 0;
-	k = ft_strlen(s) - 1 - len;
-	while (i <= k)
+	result = 1;
+	while (exponent > 0)
 	{
-		if (s[i] != c)
-			return (1);
-		i++;
+		result *= base;
+		exponent--;
 	}
-	return (0);
+	return (result);
 }

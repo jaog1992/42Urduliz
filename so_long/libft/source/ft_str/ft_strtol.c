@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long_utils.c                                    :+:      :+:    :+:   */
+/*   ft_strtol.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jde-orma <jde-orma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/29 06:55:06 by jde-orma          #+#    #+#             */
-/*   Updated: 2023/07/29 06:55:06 by jde-orma         ###   ########.fr       */
+/*   Created: 2023/08/18 13:36:51 by jde-orma          #+#    #+#             */
+/*   Updated: 2023/08/18 13:36:51 by jde-orma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../../include/libft.h"
 
-int	dbl_free_ptr(Mapa *mapa1, char **ptr)
-{
-	free(mapa1);
-	free(ptr);
-	return (1);
-}
-
-int	ft_strrepeatchr(char *s, char c, int len)
+int	ft_strtol(char *c, int base)
 {
 	int	i;
-	int	k;
+	int	num;
 
 	i = 0;
-	k = ft_strlen(s) - 1 - len;
-	while (i <= k)
-	{
-		if (s[i] != c)
-			return (1);
-		i++;
-	}
-	return (0);
+	num = 0;
+	while (i < (int)ft_strlen(c))
+		num += ft_pow(base, (c[i] - 48));
+	return (num);
 }

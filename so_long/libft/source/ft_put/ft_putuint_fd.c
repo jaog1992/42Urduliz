@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long_utils.c                                    :+:      :+:    :+:   */
+/*   ft_putuint_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jde-orma <jde-orma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jde-orma <jde-orma@42urduliz.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/29 06:55:06 by jde-orma          #+#    #+#             */
-/*   Updated: 2023/07/29 06:55:06 by jde-orma         ###   ########.fr       */
+/*   Created: 2023/03/17 11:02:42 by jde-orma          #+#    #+#             */
+/*   Updated: 2023/03/17 11:02:42 by jde-orma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../../include/libft.h"
 
-int	dbl_free_ptr(Mapa *mapa1, char **ptr)
-{
-	free(mapa1);
-	free(ptr);
-	return (1);
-}
-
-int	ft_strrepeatchr(char *s, char c, int len)
+int	ft_putuint_fd(unsigned int n, int fd)
 {
 	int	i;
-	int	k;
 
 	i = 0;
-	k = ft_strlen(s) - 1 - len;
-	while (i <= k)
+	if (n >= 10)
 	{
-		if (s[i] != c)
-			return (1);
-		i++;
+		i += ft_putuint_fd(n / 10, fd);
+		if (i == -1)
+			return (-1);
 	}
-	return (0);
+	i += ft_putchar_fd(n % 10 + '0', 1);
+	if (i == -1)
+		return (-1);
+	return (i);
 }
