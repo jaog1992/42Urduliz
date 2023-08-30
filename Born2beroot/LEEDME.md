@@ -51,6 +51,8 @@ Otros gestores de paquetes usados en otras distribuciones de linux pueden ser:
 | ZYpp | OpenSUSE/SUSE Linux Enterpruse |
 |DNF / Dandified YUM | Fedora 22 |
 
+* [Enlace explicando apt y apt-get en profundidad](https://terminaldelinux.com/terminal/administracion/instalar-paquetes-apt-get/)
+
 ## Qué es APPArmor
 
 Es un módulo de seguridad basado en perfiles del kernel Linux.
