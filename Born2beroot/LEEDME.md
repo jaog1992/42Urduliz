@@ -51,6 +51,8 @@ Otros gestores de paquetes usados en otras distribuciones de linux pueden ser:
 | ZYpp | OpenSUSE/SUSE Linux Enterpruse |
 |DNF / Dandified YUM | Fedora 22 |
 
+* [Enlace explicando apt y apt-get en profundidad](https://terminaldelinux.com/terminal/administracion/instalar-paquetes-apt-get/)
+
 ## Qué es APPArmor
 
 Es un módulo de seguridad basado en perfiles del kernel Linux.
@@ -107,6 +109,39 @@ Para el chequeo de la **POLITICA DE CONTRASEÑA** segura se ha de comprobar:
 # Hostname & partitions
 ```lsblk```
 
+# Check password rules
+```
+$ sudo cat /etc/login.defs
+```
+Cambiamos los siguientes valores en la sección *Password aging controls* del documento `login.defs`::
+```
+PASS_MAX_DAYS 30
+PASS_MIN_DAYS 2
+PASS_WARN_AGE 7
+```
+Además se ha de modificar el archivo de configuración `/etc/security/pwquality.conf`:
+```
+$ sudo cat /etc/security/pwquality.conf
+```
+Los valores a introducir son los siguientes:
+```
+# Number of characters in the new password that must not be present in the old password.
+difok = 7
+# The minimum acceptable size for the new password (plus one if credits are not disabled which is the default).
+minlen = 10
+# The maximum credit for having digits in the new password. If less than 0 it is the minimun number of digits in the new password.
+dcredit = -1
+# The maximum credit for having uppercase characters in the new password. If less than 0 it is the minimun number of uppercase characters in the new password.
+ucredit = -1
+# The maximum number of allowed consecutive same characters in the new password. The check is disabled if the value is 0.
+maxrepeat = 3
+# Whether to check it it contains the user name in some form. The check is disabled if the value is 0.
+usercheck = 1
+# Prompt user at most N times before returning with error. The default is 1.
+retry = 3
+# Enforces pwquality checks on the root user password. Enabled if the option is present.
+enforce_for_root
+```
 
 # Sudo
 Para ver la configuración del sudo:
@@ -178,13 +213,66 @@ o en su defecto se puede ver abrir directamente el archivo en ```/var/spool/cron
 ## Script
 Guardamos el script en el usuario ***home/root***.
 
-Usamos ```uname -srvmo``` para conseguir la información que queremos, ya que ```-a``` nos devuelve tambien el nombre de la máquina.
+```
+#!/bin/bash
+# OS architecture and kernel version:
+# uname da la información del Kernel y de la arquitectura del SO:
+# -s indica que kernel usa [Linux]
+# -r indica la vesion [5.10.0], los paquetes añadidos a esta [-21] y su arquitectura [-amd64]
+# -v indica la distribución del SO [#1 SMP Debian 5.10.0.162-1 (2023-01-21)
+# -m indica el procesador de la maquina [x86_64]
+# -o indica el SO [GNU/Linux]
+ARCH=$(uname -srvmo)
+# Numero de procesadores fisicos (si pone 0 es que hay 1, por eso el wc)
+PCPU=$(grep 'physical id' /proc/cpuinfo | uniq | wc -l)
+# Numero de procesadores virtuales (si pone 0  es que  hay 1, por eso el wc)
+VCPU=$(grep processor /proc/cpuinfo | uniq | wc -l)
+# RAM disponible del servidor y su porcentaje de uso:
+RAM_TOTAL=$(free -h --mega | grep Mem | awk '{print $2}')
+RAM_USED=$(free -h --mega | grep Mem | awk '{print $3}')
+RAM_PERC=$(free -k | grep Mem | awk '{printf("%.2f%%"), $3 / $2 * 100}')
+# Espacio de almacenamiento del servidor y su porcentaje de uso:
+DISK_TOTAL=$(df -h --total | grep total | awk '{print $2}')
+DISK_USED=$(df -h --total | grep total | awk '{print $3}')
+DISK_PERC=$(df -k --total | grep total | awk '{print $5}')
+# Porcentaje de uso del procesados. El b hace una instantanea de 1 iteracion:
+CPU_LOAD=$(top -bn1 | grep '^%Cpu' | xargs | awk '{printf("%.1f%%"), $2 + $4}')
+# Ultimo arranque del sistema:
+LAST_BOOT=$(who -b | awk '{print($3 " " $4)}')
+# alt: $(who -b | awk G')
+# Saber si hay configurados Volumenes Logicos:
+LVM=$(if [ $(lsblk | grep lvm | wc -l) -eq 0 ]; then echo no; else echo yes; fi)
+# Numero de conexiones activas:
+# TCP=$(grep TCP /proc/net/sockstat | awk '{print $3}')
+TCP=$(ss -ta | grep ESTAB | wc -l)
+# Numero de usuarios usando el servidor:
+USER_LOG=$(who | wc -l)
+# Direccion IP y MAC:
+IP_ADDR=$(hostname -I | awk '{print $1}')
+MAC_ADDR=$(ip link show | grep link/ether | awk '{print $2}')
+# Numero de comandos usados con SUDO:
+SUDO_LOG=$(cat /var/log/sudo/sudo.log | grep USER | wc -l)
+# Imprimir en todos los terminales:
+echo " # Architecture : "$ARCH
+echo " # CPU physical : "$PCPU
+echo " # vCPU : "$VCPU
+echo " # Memory Usage : "$RAM_USED"/"$RAM_TOTAL" ("$RAM_PERC")"
+echo " # Disk Usage : "$DISK_USED"/"$DISK_TOTAL" ("$DISK_PERC")"
+echo " # CPU load : "$CPU_LOAD
+echo " # Last boot : "$LAST_BOOT
+echo " # LVM use : "$LVM
+echo " # Connections TCP : "$TCP" established"
+echo " # User log : "$USER_LOG
+echo " # Network : IP "$IP_ADDR" (MAC "$MAC_ADDR")"
+echo " # Sudo : "$SUDO_LOG" cmd"
+```
+Usamos ```uname -srvmo``` para conseguir solo la información que queremos, ya que ```-a``` nos devuelve tambien el nombre de la máquina.
 
-Usamos ```free``` para la memoria RAM usada y mostra los datos recogiendo la línea Mem con ```grep``` y los valores deseados con ```awk```. Mientras que -h nos da los valores en bytes -k nos los valores en bits.
+Usamos ```free``` para la memoria RAM usada y mostrar los datos recogiendo la línea Mem con ```grep``` y los valores deseados con ```awk```. Mientras que ```-h``` nos da los valores en bytes ```-k``` nos los valores en bits.
 
 Usamos ```df``` para ver el espacio en disco.
 
-Usamos ```top -bn1``` para mostrar los procesos de linux y su porcentaje de uso. si no se indica el -b (batch) -n (number) -1 (1 iteración) el sistema nos mostrará sus datos en tiempo real, por lo que así solo muestra una iteración o instantanea del sistema.
+Usamos ```top -bn1``` para mostrar los procesos de linux y su porcentaje de uso. Si no se indica el ```-b``` (batch) ```-n``` (number) ```-1``` (1 iteración) el sistema nos mostrará sus datos en tiempo real, por lo que así solo muestra una iteración o instantanea del sistema.
 
 Usamos ```who``` que muestra quien está logueado con ```-b``` para que muestre el timestamp del último boot.
 
@@ -194,7 +282,7 @@ Con ```lsblk``` mostramos la información de las particiones físicas y los volu
 
 Parece que cada servicio que se instala en GNU/Linux crea una carpeta en **/etc** para almacenar sus archivos de configuración.
 
-Si usas la opción de grep -E puedes hacer una especie de AND poniendo el valor de busqueda entre comillas simples, de forma que puedes buscar los archivos de todos los servicios que te interesen así:
+Si usas la opción de ```grep -E``` puedes hacer una especie de AND poniendo el valor de busqueda entre comillas simples, de forma que puedes buscar los archivos de todos los servicios que te interesen así:
 
 
 ```ls -l /etc | grep -E 'cron|ssh|ufw|php' ```
