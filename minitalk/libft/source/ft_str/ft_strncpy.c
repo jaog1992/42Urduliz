@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jde-orma <jde-orma@42urduliz.com>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 16:24:22 by jde-orma          #+#    #+#             */
-/*   Updated: 2023/04/03 19:24:02 by jde-orma         ###   ########.fr       */
+/*   Updated: 2023/09/13 12:47:13 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,4 @@ char	*ft_strncpy(char *dst, const char *src, size_t len)
 		i++;
 	}
 	return (dst);
-}	
+}

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "minitalk.h"
+#include <stdio.h>
 
 void	ft_handle_sigusr(int signum, siginfo_t *info, void *ucontent)
 {

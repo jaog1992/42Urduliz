@@ -12,19 +12,6 @@
 
 #include "../../include/libft.h"
 
-/* ************************************************************************** */
-/*                                                                            */
-/* FUNCTIONALITY                                                              */
-/*                                                                            */
-/* This function sets the first 'n' positions of a given pointer (*s) to the  */
-/* NULL character '\0'.                                                       */
-/*                                                                            */
-/* The function works by initializin a pointer 'i' to the start of the memory */
-/* block 's', and then repeatedly storing the value of '\0' a the location    */
-/* 'i'.                                                                       */
-/*                                                                            */
-/* ************************************************************************** */
-
 void	ft_bzero(void *s, size_t n)
 {
 	unsigned char	*i;

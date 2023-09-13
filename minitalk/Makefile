@@ -17,7 +17,7 @@ USER_NAME   =   jde-orma
 # Compiler, flags and static library creation
 
 CC          =   gcc
-CCFLAGS     =   -Wall -Wextra -Werror
+CCFLAGS     =   -Wall -Wextra -Werror -g
 # HDR         =   -I ./
 AR          =   ar rc
 RM          =   rm -f
