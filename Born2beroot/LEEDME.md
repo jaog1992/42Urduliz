@@ -67,7 +67,7 @@ Otro perfil de seguridad similar es SELinux (Security-Enhanced Linux). Ambos sis
 
 ## Que es LVM
 
-Es un gestor de volúmenes lógicos. Proporciona un método para asignar espacio en dispositivos de almacenamiento masivo, que es más flexible que los esquemas de particionado convencionales para almacenar volúmenes, permitiendo aumentar el tamaño del disco incluso cuando no hay espacio de disco contiguo libre.
+Es un gestor de volúmenes lógicos. Proporciona un método para asignar espacio en dispositivos de almacenamiento masivo, que es más flexible que los esquemas de particionado convencionales para almacenar volúmenes, permitiendo aumentar el tamaño del disco incluso cuando no hay espacio de disco contiguo libre. Ejemplo: Podrias tener una unidad virtual que coja 2gb de un disco, 30 de otro y 50 de otro.
 
 # Simple Setup
 # User
