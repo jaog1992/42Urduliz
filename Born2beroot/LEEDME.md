@@ -148,6 +148,14 @@ Para ver la configuración del sudo:
 
 ```sudo visudo```
 
+	Defaults	passwd_tries=3
+	Defaults	badpass_message="Wrong Password. Keep calm and keep trying!"
+	Defaults	logfile="/var/log/sudo/sudo.log"
+	Defaults	log_input,log_output
+	Defaults	iolog_dir="/var/log/sudo"
+	Defaults	requiretty/	
+	Defaults	secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
+
 o
 
 ```sudo nano /etc/sudoers```
