@@ -251,7 +251,7 @@ USER_LOG=$(who | wc -l)
 IP_ADDR=$(hostname -I | awk '{print $1}')
 MAC_ADDR=$(ip link show | grep link/ether | awk '{print $2}')
 # Numero de comandos usados con SUDO:
-SUDO_LOG=$(cat /var/log/sudo/sudo.log | grep USER | wc -l)
+SUDO_LOG=$(cat /var/log/sudo/sudo.log | grep -a 'USER' | wc -l)
 # Imprimir en todos los terminales:
 echo " # Architecture : "$ARCH
 echo " # CPU physical : "$PCPU
