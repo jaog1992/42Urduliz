@@ -197,6 +197,14 @@ Para habilitar o deshabilitar puertos:
 
 ```sudo ufw allow/deny 8080```
 
+Para eliminar una regla establecida primero pedimos que nos muestre la numeración de las reglas:
+
+```sudo ufw status numbered```
+
+Una vez tenemos la numeración le indicamos que elimine el número que queramos. Ejemplo con regla nº4:
+
+```sudo ufw delete 4```
+
 # SSH
 Para ver el puerto configurado para ssh
 
