@@ -149,7 +149,7 @@ Para ver la configuración del sudo:
 ```sudo visudo```
 
 	Defaults	passwd_tries=3
-	Defaults	badpass_message="Wrong Password. Keep calm and keep trying!"
+	Defaults	badpass_message=" [EN] Wrong Password! [EUS] Gako okerra!"
 	Defaults	logfile="/var/log/sudo/sudo.log"
 	Defaults	log_input,log_output
 	Defaults	iolog_dir="/var/log/sudo"
