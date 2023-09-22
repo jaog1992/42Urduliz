@@ -21,13 +21,13 @@
 
 | Project  | Grade |
 | :--- | :--- |
-| CURSUS  | Level 1.83% |
+| CURSUS  | Level 2.07% |
 | ******  | ****** |
 | libft  | 100% |
 | ******  | ****** |
 | get_next_line  | 100% |
 | printf  | 100% |
-| Born2beroot | Done! Pending correction |
+| Born2beroot | 100% |
 | ******  | ****** |
 | so_long | ongoing |
 | push_swap | ongoing |
