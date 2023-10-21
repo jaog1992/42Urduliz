@@ -29,7 +29,7 @@
 | printf  | 100% |
 | Born2beroot | 100% |
 | ******  | ****** |
-| so_long | ongoing |
+| so_long | Done! Pending correction |
 | push_swap | ongoing |
 | minitalk | Done! Pending correction |
 
