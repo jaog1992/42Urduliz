@@ -21,7 +21,7 @@
 
 | Project  | Grade |
 | :--- | :--- |
-| CURSUS  | Level 2.07% |
+| CURSUS  | Level 3.18% |
 | ******  | ****** |
 | libft  | 100% |
 | ******  | ****** |
@@ -29,9 +29,11 @@
 | printf  | 100% |
 | Born2beroot | 100% |
 | ******  | ****** |
-| so_long | Done! Pending correction |
-| push_swap | ongoing |
-| minitalk | Done! Pending correction |
+| minitalk | 100% |
+| so_long | 100% |
+| push_swap | 98% |
+| ******  | ****** |
+| philosophers | on going |
 
 | Project  | Grade |
 | :--- | :--- |
