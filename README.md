@@ -21,7 +21,7 @@
 
 | Project  | Grade |
 | :--- | :--- |
-| CURSUS  | Level 3.18% |
+| CURSUS  | Level 3.75% |
 | ******  | ****** |
 | libft  | 100% |
 | ******  | ****** |
@@ -32,8 +32,11 @@
 | minitalk | 100% |
 | so_long | 100% |
 | push_swap | 98% |
+| exam_02 | 100% |
 | ******  | ****** |
-| philosophers | on going |
+| exam_03 | 100% |
+| philosophers | 100% |
+| minishell | on going |
 
 | Project  | Grade |
 | :--- | :--- |
